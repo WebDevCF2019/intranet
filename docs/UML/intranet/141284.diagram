@@ -1,0 +1,98 @@
+format 221
+
+classcanvas 128356 class_ref 141796 // Role
+  classdiagramsettings member_max_width 0 end
+  xyz 115.48 253.9 2000
+end
+classcanvas 128484 class_ref 141924 // Droit
+  classdiagramsettings member_max_width 0 end
+  xyz 115.48 393 2000
+end
+classcanvas 128868 class_ref 142052 // Filière
+  classdiagramsettings member_max_width 0 end
+  xyz 652.42 495.52 2000
+end
+classcanvas 128996 class_ref 142180 // Session
+  classdiagramsettings member_max_width 0 end
+  xyz 655.82 278.32 2000
+end
+classcanvas 129252 class_ref 142308 // Groupe
+  classdiagramsettings member_max_width 0 end
+  xyz 658.44 156.44 2000
+end
+classcanvas 129508 class_ref 142436 // Stagiaire
+  classdiagramsettings member_max_width 0 end
+  xyz 390.08 166.28 2000
+end
+classcanvas 129764 class_ref 142564 // Employé
+  classdiagramsettings member_max_width 0 end
+  xyz 389.32 56.8 2000
+end
+classcanvas 129892 class_ref 141668 // Utilisateur
+  classdiagramsettings member_max_width 0 end
+  xyz 106.68 76.68 3005
+end
+classcanvas 130404 class_ref 142692 // Période
+  classdiagramsettings member_max_width 0 end
+  xyz 315.52 268.52 2000
+end
+classcanvas 130532 class_ref 142820 // Congé
+  classdiagramsettings member_max_width 0 end
+  xyz 290.96 479.72 2000
+end
+classcanvas 130660 class_ref 142948 // Cours
+  classdiagramsettings member_max_width 0 end
+  xyz 394.88 479.72 2000
+end
+classcanvas 131812 class_ref 143076 // Inscription
+  classdiagramsettings member_max_width 0 end
+  xyz 517 216 2000
+end
+relationcanvas 128740 relation_ref 134884 // <association>
+  from ref 128356 z 2001 to ref 128484
+  no_role_a no_role_b
+  multiplicity_a_pos 123 377 3000 multiplicity_b_pos 123 321 3000
+end
+relationcanvas 129124 relation_ref 135012 // <association>
+  from ref 128868 z 2001 to ref 128996
+  no_role_a no_role_b
+  multiplicity_a_pos 665 440 3000 multiplicity_b_pos 675 480 3000
+end
+relationcanvas 129380 relation_ref 135140 // <association>
+  from ref 129252 z 2001 to ref 128996
+  no_role_a no_role_b
+  multiplicity_a_pos 673 262 3000 multiplicity_b_pos 661 225 3000
+end
+relationcanvas 130020 relation_ref 134756 // 
+  from ref 129892 z 3006 to ref 128356
+  no_role_a no_role_b
+  multiplicity_a_pos 121 237 3000 multiplicity_b_pos 121 191 3000
+end
+relationcanvas 130148 relation_ref 135396 // <generalisation>
+  from ref 129764 z 3006 to ref 129892
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130276 relation_ref 135524 // <generalisation>
+  from ref 129508 z 3006 to ref 129892
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130788 relation_ref 135652 // <generalisation>
+  from ref 130532 z 2001 to ref 130404
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130916 relation_ref 135780 // <generalisation>
+  from ref 130660 z 2001 to ref 130404
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131428 relation_ref 142564 // <association>
+  from ref 129508 z 2001 to ref 129252
+  no_role_a no_role_b
+  multiplicity_a_pos 642 194 3000 multiplicity_b_pos 459 192 3000
+end
+line 131940 -_-_
+  from ref 131812 z 2002 to ref 131428
+end

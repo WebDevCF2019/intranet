@@ -1,0 +1,273 @@
+format 221
+"Pedagogique" // Pedagogique
+  revision 3
+  modified_by 68 "Pierre"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  usecaseview 128100 "SuiviPedago"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    usecasediagram 128100 "FicheSuivi"
+      usecasediagramsettings draw_all_relations no end
+      size A4
+    end
+
+    class 128100 "Referent"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128228 // <generalisation>
+	relation 128228 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 128228 // <generalisation>
+	  b parent class_ref 128356 // Employe
+      end
+    end
+
+    usecase 128100 "Sélectionner Stagiaire"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 128228 "Imprimer FicheSuivi"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128100
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128356 // S'authentifier
+      end
+
+      simplerelation 128228
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128356 // S'authentifier
+      end
+
+      simplerelation 128356
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128100 // Sélectionner Stagiaire
+      end
+    end
+
+    usecase 128356 "S'authentifier"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 128484 "Gérer EtatSuivi"
+      stereotype "CRUD"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128484
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128356 // S'authentifier
+      end
+
+      simplerelation 128612
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128100 // Sélectionner Stagiaire
+      end
+    end
+
+    class 128228 "AdminPedago"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128100 // <generalisation>
+	relation 128100 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 128100 // <generalisation>
+	  b parent class_ref 128356 // Employe
+      end
+
+      classrelation 134724 // <generalisation>
+	relation 134724 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 134724 // <generalisation>
+	  b parent class_ref 134596 // Administrateur
+      end
+    end
+
+    usecase 128612 "Gérer CritèreSuivi"
+      stereotype "CRUD"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128740
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128356 // S'authentifier
+      end
+    end
+
+    class 128356 "Employe"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+  end
+end

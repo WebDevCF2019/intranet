@@ -1,0 +1,18 @@
+window_sizes 1280 908 300 975 795 67
+
+diagrams
+  active  classdiagram_ref 141284 // diag
+    975 795 108 A4 0 0
+  usecasediagram_ref 128100 // Suivi
+    114 86 100 A4 0 0
+end
+show_stereotypes
+selected 
+  package_ref 129 // intranet
+open
+  usecaseview_ref 128100 // SuiviPedago
+  usecaseview_ref 134628 // Login
+  
+  package_ref 128356 // Configuration
+end
+end

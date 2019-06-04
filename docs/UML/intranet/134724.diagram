@@ -1,0 +1,32 @@
+format 221
+
+classcanvas 128068 class_ref 128356 // Employe
+  simpleclassdiagramsettings end
+  xyz 76 206 2000
+end
+subject 128196 ""
+  xyzwh 257 31 2000 394 496
+usecasecanvas 128324 usecase_ref 128356 // S'authentifier
+  xyzwh 512 81 3005 103 57 label_xy 533 99
+end
+usecasecanvas 128452 usecase_ref 135748 // Imprimer FeuilleSignature
+  xyzwh 325 206 3005 149 63 label_xy 342 230
+end
+usecasecanvas 128708 usecase_ref 135876 // Choisir Imprimante
+  xyzwh 295 388 3005 113 51 label_xy 309 406
+end
+usecasecanvas 128836 usecase_ref 136004 // Voir Aperçu
+  xyzwh 523 346 3005 103 55 label_xy 548 365
+end
+simplerelationcanvas 128580 simplerelation_ref 135748
+  from ref 128452 z 3006 stereotype "<<include>>" xyz 452 171 3000 to ref 128324
+end
+simplerelationcanvas 128964 simplerelation_ref 135876
+  from ref 128708 z 3006 stereotype "<<extend>>" xyz 344.5 327 3000 to ref 128452
+end
+simplerelationcanvas 129092 simplerelation_ref 136004
+  from ref 128836 z 3006 stereotype "<<extend>>" xyz 460 306.5 3000 to ref 128452
+end
+line 129220 ----
+  from ref 128068 z 3006 to ref 128452
+end

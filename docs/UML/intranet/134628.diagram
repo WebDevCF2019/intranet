@@ -1,0 +1,112 @@
+format 221
+
+classinstance 128100 class_ref 135012 // Utilisateur
+  name ""   xyz 161.371 3.69071 2005 life_line_z 2000
+classinstance 128228 class_ref 134884 // Systeme
+  name ""   xyz 455.664 3.50233 2000 life_line_z 2000
+fragment 129636 "loop"
+  xyzwh 379.161 276.089 1995 287 121
+end
+fragment 130020 "loop"
+  xyzwh 400.306 330.715 2000 255 55
+end
+fragment 133220 "alt"
+  xyzwh 248.3 257.78 1990 437 382
+  separator 5248
+  separator 7851
+end
+note 134116 "[ username OK
+ password OK ]"
+  xyzwh 251 279 2000 103 48
+note 134244 "[ username inconnu ]"
+  xyzwh 255 463 2000 126 34
+note 134372 "[ username/password pas OK ]"
+  xyzwh 254 561 3005 179 34
+durationcanvas 128356 classinstance_ref 128100 // :Utilisateur
+  xyzwh 182 63.7235 2010 11 117
+end
+durationcanvas 128484 classinstance_ref 128228 // :Systeme
+  xyzwh 478 64.4386 2010 11 66
+end
+durationcanvas 128868 classinstance_ref 128228 // :Systeme
+  xyzwh 478 162.419 2010 11 27
+end
+durationcanvas 129124 classinstance_ref 128228 // :Systeme
+  xyzwh 478 208.301 2010 11 25
+end
+durationcanvas 129380 classinstance_ref 128228 // :Systeme
+  xyzwh 478 285.959 2010 11 30
+end
+durationcanvas 129764 classinstance_ref 128228 // :Systeme
+  xyzwh 478 341.206 2010 11 32
+end
+durationcanvas 130148 classinstance_ref 128228 // :Systeme
+  xyzwh 478 411.412 2010 11 25
+end
+durationcanvas 130276 classinstance_ref 128100 // :Utilisateur
+  xyzwh 182 401.352 2010 11 39
+end
+durationcanvas 133348 classinstance_ref 128228 // :Systeme
+  xyzwh 478 513.44 2010 11 33
+end
+durationcanvas 133476 classinstance_ref 128100 // :Utilisateur
+  xyzwh 182 513.98 2010 11 36
+end
+durationcanvas 133732 classinstance_ref 128228 // :Systeme
+  xyzwh 478 599.98 2010 11 25
+end
+durationcanvas 133860 classinstance_ref 128100 // :Utilisateur
+  xyzwh 182 604.6 2010 11 37
+end
+msg 128612 synchronous
+  from durationcanvas_ref 128356
+  to durationcanvas_ref 128484
+  yz 65 2015 explicitmsg "1. demandePageLogin()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 266 51
+msg 128740 return
+  from durationcanvas_ref 128484
+  to durationcanvas_ref 128356
+  yz 114 2015 explicitmsg "2. afficheFormulaireLogin()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 258 99
+msg 128996 synchronous
+  from durationcanvas_ref 128356
+  to durationcanvas_ref 128868
+  yz 164 2015 explicitmsg "3. envoiLogin(username, password)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 254 153
+reflexivemsg 129252 synchronous
+  to durationcanvas_ref 129124
+  yz 208 2015 explicitmsg "4. verifieLogin()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 514 208
+reflexivemsg 129508 synchronous
+  to durationcanvas_ref 129380
+  yz 285 2015 explicitmsg "5. rechercheRole(utilisateur)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 521 298
+reflexivemsg 129892 synchronous
+  to durationcanvas_ref 129764
+  yz 341 2015 explicitmsg "6. rechercheModule(role)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 518 354
+msg 130404 return
+  from durationcanvas_ref 130148
+  to durationcanvas_ref 130276
+  yz 419 2015 explicitmsg "7. afficheAccueil(utilisateur, modules)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 272 405
+msg 133604 return
+  from durationcanvas_ref 133348
+  to durationcanvas_ref 133476
+  yz 522 2015 explicitmsg "4a. afficheMessage(usernameInconnu)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 257 509
+msg 133988 return
+  from durationcanvas_ref 133732
+  to durationcanvas_ref 133860
+  yz 613 2015 explicitmsg "4b. afficheMessage(loginInvalide)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 259 599
+end
