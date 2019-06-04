@@ -1,6 +1,6 @@
 format 221
 "Configuration" // Configuration
-  revision 5
+  revision 6
   modified_by 68 "Pierre"
   // class settings
   
@@ -422,6 +422,18 @@ ${members}}
       classrelation 135652 // <association>
 	relation_ref 135140 // <association>
       end
+
+      classrelation 141380 // <association>
+	relation 141380 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 141380 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 141508 // <association>
+      end
     end
 
     class 142308 "Groupe"
@@ -479,6 +491,10 @@ ${members}}
       classrelation 143588 // <association>
 	relation_ref 142564 // <association>
       end
+
+      classrelation 145860 // <association>
+	relation_ref 143684 // <association>
+      end
     end
 
     class 142436 "Stagiaire"
@@ -524,6 +540,34 @@ ${members}}
 "
 	    classrelation_ref 143588 // <association>
 	  association_type class_ref 143076 // Inscription
+      end
+
+      classrelation 143300 // <aggregation>
+	relation_ref 142404 // <aggregation>
+      end
+
+      classrelation 143428 // <aggregation>
+	relation 142532 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143428 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143556 // <aggregation>
+      end
+
+      classrelation 143684 // <association>
+	relation 142660 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143684 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143812 // <association>
       end
     end
 
@@ -655,6 +699,22 @@ ${members}}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      classrelation 141892 // <aggregation>
+	relation 141764 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 141892 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142020 // <aggregation>
+      end
+
+      classrelation 142276 // <aggregation>
+	relation_ref 141892 // <aggregation>
+      end
     end
 
     class 142820 "Congé"
@@ -678,7 +738,7 @@ ${members}}
       end
     end
 
-    class 142948 "Cours"
+    class 142948 "JourOuvré"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -696,6 +756,18 @@ ${members}}
 	    php "${type}"
 	    classrelation_ref 136420 // <generalisation>
 	  b parent class_ref 142692 // Période
+      end
+
+      classrelation 144708 // <association>
+	relation 143172 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144708 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144836 // <association>
       end
     end
 
@@ -726,6 +798,366 @@ ${members}}
 "
 	    classrelation_ref 136932 // <association>
       end
+
+      classrelation 143812 // <association>
+	relation_ref 142660 // <association>
+      end
+
+      classrelation 143940 // <aggregation>
+	relation 142788 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143940 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144068 // <aggregation>
+      end
+
+      classrelation 144196 // <aggregation>
+	relation 142916 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144196 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144324 // <aggregation>
+      end
+
+      classrelation 145732 // <association>
+	relation 143684 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145732 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145860 // <association>
+      end
+    end
+
+    class 141380 "PlanningSession"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 141508 // <association>
+	relation_ref 141380 // <association>
+      end
+
+      classrelation 141764 // <generalisation>
+	relation 141636 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 141764 // <generalisation>
+	  b parent class_ref 141636 // Planning
+      end
+    end
+
+    class 141508 "PlanningStagiaire"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 141636 // <generalisation>
+	relation 141508 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 141636 // <generalisation>
+	  b parent class_ref 141636 // Planning
+      end
+
+      classrelation 144580 // <association>
+	relation_ref 143044 // <association>
+      end
+    end
+
+    class 141636 "Planning"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 142020 // <aggregation>
+	relation_ref 141764 // <aggregation>
+      end
+
+      classrelation 142148 // <aggregation>
+	relation 141892 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142148 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142276 // <aggregation>
+      end
+    end
+
+    class 141764 "DossierPedagogique"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 142916 // <association>
+	relation 142276 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142916 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143044 // <association>
+      end
+
+      classrelation 143172 // <aggregation>
+	relation 142404 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143172 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 143300 // <aggregation>
+      end
+
+      classrelation 143556 // <aggregation>
+	relation_ref 142532 // <aggregation>
+      end
+
+      classrelation 144068 // <aggregation>
+	relation_ref 142788 // <aggregation>
+      end
+    end
+
+    class 141892 "FicheSuivi"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 142532 // <composition>
+	relation_ref 142020 // <composition>
+      end
+
+      classrelation 142660 // <composition>
+	relation 142148 *---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142660 // <composition>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142788 // <composition>
+      end
+
+      classrelation 143044 // <association>
+	relation_ref 142276 // <association>
+      end
+    end
+
+    class 142020 "Critère"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 142404 // <composition>
+	relation 142020 *---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142404 // <composition>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 142532 // <composition>
+      end
+
+      classrelation 142788 // <composition>
+	relation_ref 142148 // <composition>
+      end
+    end
+
+    class 142148 "DossierAdministratif"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 144324 // <aggregation>
+	relation_ref 142916 // <aggregation>
+      end
+
+      classrelation 144452 // <association>
+	relation 143044 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144452 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144580 // <association>
+      end
+
+      classrelation 144964 // <association>
+	relation 143300 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 144964 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145092 // <association>
+      end
+    end
+
+    class 142276 "Presence"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 144836 // <association>
+	relation_ref 143172 // <association>
+      end
+
+      classrelation 145348 // <association>
+	relation_ref 143428 // <association>
+      end
+
+      classrelation 145604 // <association>
+	relation_ref 143556 // <association>
+      end
+    end
+
+    class 142404 "Statistiques"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 145092 // <association>
+	relation_ref 143300 // <association>
+      end
+
+      classrelation 145220 // <association>
+	relation 143428 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145220 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145348 // <association>
+      end
+    end
+
+    class 142532 "Justificatif"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 145476 // <association>
+	relation 143556 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145476 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 145604 // <association>
+      end
+    end
+
+    class 142660 "Rattrapage"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
     end
   end
 
