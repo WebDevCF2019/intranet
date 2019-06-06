@@ -1,2 +1,4 @@
 # netbeans folder
 /nbproject/
+# PHPStorm folder
+/.idea/
