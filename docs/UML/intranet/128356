@@ -1,6 +1,6 @@
 format 221
 "Configuration" // Configuration
-  revision 6
+  revision 7
   modified_by 68 "Pierre"
   // class settings
   
@@ -434,6 +434,10 @@ ${members}}
 "
 	    classrelation_ref 141508 // <association>
       end
+
+      classrelation 152516 // <association>
+	relation_ref 150212 // <association>
+      end
     end
 
     class 142308 "Groupe"
@@ -736,6 +740,42 @@ ${members}}
 	    classrelation_ref 136292 // <generalisation>
 	  b parent class_ref 142692 // Période
       end
+
+      attribute 128324 "session"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128452 "debut"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128580 "fin"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 142948 "JourOuvré"
@@ -837,6 +877,42 @@ ${members}}
 	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
 "
 	    classrelation_ref 145860 // <association>
+      end
+
+      classrelation 152388 // <association>
+	relation 150212 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 152388 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 152516 // <association>
+      end
+
+      attribute 128068 "date_début"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128196 "date_fin"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
 
@@ -1383,7 +1459,7 @@ ${members}}
       end
     end
 
-    usecase 135236 "Gérer Groupe"
+    usecase 135236 "Gérer Inscription"
       
       usecasediagramsettings end
       
@@ -1411,35 +1487,7 @@ ${members}}
       end
     end
 
-    usecase 135364 "Gérer Stagiaire"
-      
-      usecasediagramsettings end
-      
-      sequencediagramsettings end
-      
-      collaborationdiagramsettings end
-      
-      classdiagramsettings member_max_width 0 end
-      
-      classcompositediagramsettings end
-      
-      objectdiagramsettings end
-      
-      objectcompositediagramsettings end
-      
-      statediagramsettings
-       end
-      
-      activitydiagramsettings
-       end
-      simplerelation 135364
-	-_->
-	  stereotype "include"
-	  on usecase_ref 128356 // S'authentifier
-      end
-    end
-
-    usecase 135492 "Gérer Période"
+    usecase 135492 "Gérer Congé"
       
       usecasediagramsettings end
       
@@ -1467,32 +1515,5 @@ ${members}}
       end
     end
 
-    usecase 135620 "Gérer Planning"
-      
-      usecasediagramsettings end
-      
-      sequencediagramsettings end
-      
-      collaborationdiagramsettings end
-      
-      classdiagramsettings member_max_width 0 end
-      
-      classcompositediagramsettings end
-      
-      objectdiagramsettings end
-      
-      objectcompositediagramsettings end
-      
-      statediagramsettings
-       end
-      
-      activitydiagramsettings
-       end
-      simplerelation 135620
-	-_->
-	  stereotype "include"
-	  on usecase_ref 128356 // S'authentifier
-      end
-    end
   end
 end

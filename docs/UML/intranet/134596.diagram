@@ -38,19 +38,13 @@ usecasecanvas 130372 usecase_ref 134980 // Gérer Filière
   xyzwh 359 255 3005 93 47 label_xy 373 268
 end
 usecasecanvas 130500 usecase_ref 135108 // Gérer Session
-  xyzwh 360 316 3005 95 47 label_xy 371 332
+  xyzwh 361 333 3005 95 47 label_xy 372 349
 end
-usecasecanvas 130628 usecase_ref 135236 // Gérer Groupe
-  xyzwh 360 377 3005 95 49 label_xy 373 392
+usecasecanvas 130628 usecase_ref 135236 // Gérer Inscription
+  xyzwh 348 404 3005 115 49 label_xy 366 418
 end
-usecasecanvas 130756 usecase_ref 135364 // Gérer Stagiaire
-  xyzwh 360 441 3005 97 49 label_xy 372 456
-end
-usecasecanvas 131908 usecase_ref 135492 // Gérer Période
-  xyzwh 488 509 3005 99 51 label_xy 503 526
-end
-usecasecanvas 132036 usecase_ref 135620 // Gérer Planning
-  xyzwh 584 575 3005 85 49 label_xy 591 592
+usecasecanvas 131908 usecase_ref 135492 // Gérer Congé
+  xyzwh 474 516 3005 99 51 label_xy 492 533
 end
 line 129348 ----
   from ref 128324 z 3006 to ref 128836
@@ -61,7 +55,7 @@ line 129604 ----
 line 129732 ----
   from ref 129092 z 3006 to ref 128068
 simplerelationcanvas 129860 simplerelation_ref 134596
-  from ref 128836 z 3006 stereotype "<<include>>" xyz 579.5 197 3000 to ref 129220
+  from ref 128836 z 3006 stereotype "<<include>>" xyz 579 197 3000 to ref 129220
 end
 simplerelationcanvas 130116 simplerelation_ref 134724
   from ref 128964 z 3006 stereotype "<<include>>" xyz 538 225 3000 to ref 129220
@@ -75,28 +69,18 @@ line 131012 ----
   from ref 128452 z 3006 to ref 130500
 line 131140 ----
   from ref 128452 z 3006 to ref 130628
-line 131268 ----
-  from ref 128452 z 3006 to ref 130756
 simplerelationcanvas 131396 simplerelation_ref 134980
-  from ref 130372 z 3006 stereotype "<<include>>" xyz 493 295.5 3000 to ref 129220
+  from ref 130372 z 3006 stereotype "<<include>>" xyz 493 295 3000 to ref 129220
 end
 simplerelationcanvas 131524 simplerelation_ref 135108
-  from ref 130500 z 3006 stereotype "<<include>>" xyz 495 326 3000 to ref 129220
+  from ref 130500 z 3006 stereotype "<<include>>" xyz 495.5 334.5 3000 to ref 129220
 end
 simplerelationcanvas 131652 simplerelation_ref 135236
-  from ref 130628 z 3006 stereotype "<<include>>" xyz 495 357 3000 to ref 129220
-end
-simplerelationcanvas 131780 simplerelation_ref 135364
-  from ref 130756 z 3006 stereotype "<<include>>" xyz 494 390 3000 to ref 129220
+  from ref 130628 z 3006 stereotype "<<include>>" xyz 495.5 370.5 3000 to ref 129220
 end
 simplerelationcanvas 132164 simplerelation_ref 135492
-  from ref 131908 z 3006 stereotype "<<include>>" xyz 560.5 424 3000 to ref 129220
+  from ref 131908 z 3006 stereotype "<<include>>" xyz 553 427.5 3000 to ref 129220
 end
-simplerelationcanvas 132292 simplerelation_ref 135620
-  from ref 132036 z 3006 stereotype "<<include>>" xyz 605.5 457.5 3000 to ref 129220
-end
-line 132548 ----
-  from ref 128580 z 3006 to ref 132036
 line 132676 ----
   from ref 128580 z 3006 to ref 131908
 relationcanvas 132804 relation_ref 134596 // <generalisation>
