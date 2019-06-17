@@ -6,7 +6,7 @@ echo $b = password_hash("admin",PASSWORD_DEFAULT);
 echo "<br>";
 echo $c = password_hash("admin",PASSWORD_DEFAULT);
 echo "<br>";
-echo $d = password_hash("admin",PASSWORD_DEFAULT);
+echo $d = 78("admin",PASSWORD_DEFAULT);
 echo "<br>";
 echo password_verify("admin",$a);
 echo "<br>";
