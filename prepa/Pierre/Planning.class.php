@@ -3,12 +3,12 @@
 include_once 'DbConfig.class.php';
 include_once 'CaseHoraire.class.php';
 
-class Planning 
+class Planning
 {
     private $premiereDate;
     private $derniereDate;
     private $unjour;
-    
+
     private $listeDates = array();
 
     function __construct(int $sessID)
@@ -121,7 +121,7 @@ class Planning
             $dateTest = new DateTime($cle);
             if (($dateTest>=$debut)&&($dateTest<=$fin)) {
                 $listePartielle[$cle] = $valeur;
-            }                
+            }
         }
 
         return $listePartielle;
@@ -181,7 +181,7 @@ class Planning
 
         $joursMois = $this->extraireListeEntreDeuxDates($premiereDate->format("Y-m-d"), $derniereDate->format("Y-m-d"));
 //        $this->afficheListe($joursMois);
-        
+
         return $joursMois;
     }
 
@@ -194,7 +194,7 @@ class Planning
         if ($avant==TRUE){ // Compléter les dates AVANT le début de la session
             $nomMoisDebutSession = $this->convertirNumeroMoisVersNomMois($moisDebutSession);
             $premierJourMois = new DateTime('first day of '.$nomMoisDebutSession.$anneeDebutSession);
-    
+
             // Si le 1er jour du mois n'est pas un lundi, on cherche le lundi précédent
             if (date_format($premierJourMois,'w') != 1) {
                 if ($moisDebutSession==1){
@@ -215,8 +215,8 @@ class Planning
                 $this->listeDates[$date->format("Y-m-d")] = $unJourBlanc;
             }
             ksort($this->listeDates);   // trier la liste des dates par ordre chronologique
-        } 
-        else 
+        }
+        else
         { // Compléter les dates après la fin de la session
             $nomMoisFinSession = $this->convertirNumeroMoisVersNomMois($moisFinSession);
             $dernierJourMois = new DateTime('last day of '.$nomMoisFinSession.$anneeFinSession);
@@ -285,7 +285,7 @@ class Planning
             case CF2M_CASE_EXTRALEGAL : $typeDate = "Extra-légal"; break;
             case CF2M_CASE_WEEKEND : $typeDate = "Week-end"; break;
             case CF2M_CASE_INCONNU : $typeDate = "???"; break;
-            default : $typeDate = "Erreur !";    
+            default : $typeDate = "Erreur !";
         }
 
         return $typeDate;
@@ -311,7 +311,7 @@ class Planning
 
         foreach ($periode as $date) {
             array_push($tabDates,$date->format('Y-m-d'));
-        }    
+        }
 
         return $tabDates;
     }
@@ -326,19 +326,19 @@ class Planning
 
         $uneDate = new DateTime('first day of may '.$annee);    // Fete du travail - 1er mai
         array_push($listeFeries, $this->creerJour($uneDate, CF2M_CASE_FERIE, CF2M_CASE_FERIE));
-        
+
         $uneDate = new DateTime('first day of july '.$annee); $uneDate = $uneDate->add(new DateInterval('P20D'));   // Fête nationale belge - 21 juillet
         array_push($listeFeries, $this->creerJour($uneDate, CF2M_CASE_FERIE, CF2M_CASE_FERIE));
-        
+
         $uneDate = new DateTime('first day of august '.$annee); $uneDate = $uneDate->add(new DateInterval('P14D'));   // Assomption - 15 août
         array_push($listeFeries, $this->creerJour($uneDate, CF2M_CASE_FERIE, CF2M_CASE_FERIE));
-        
+
         $uneDate = new DateTime('first day of november '.$annee);    // Toussaint - 1er novembre
         array_push($listeFeries, $this->creerJour($uneDate, CF2M_CASE_FERIE, CF2M_CASE_FERIE));
-        
+
         $uneDate = new DateTime('first day of november '.$annee); $uneDate = $uneDate->add(new DateInterval('P10D'));   // Armistice - 11 novembre
         array_push($listeFeries, $this->creerJour($uneDate, CF2M_CASE_FERIE, CF2M_CASE_FERIE));
-        
+
         $uneDate = new DateTime('first day of december '.$annee); $uneDate = $uneDate->add(new DateInterval('P24D'));   // Noel - 25 décembre
         array_push($listeFeries, $this->creerJour($uneDate, CF2M_CASE_FERIE, CF2M_CASE_FERIE));
 
@@ -393,11 +393,11 @@ class Planning
         // récupérer les congés associés à cette session
         //echo "Congés associés à la session id=".$sessionID;
         $result = $dbConn->select("SELECT debut,fin,type FROM conges WHERE session_id=".$sessionID);
-        
+
         foreach($result as $cle=>$valeur){
             $datedebut = $valeur['debut'];
             $datefin = $valeur['fin'];
-            
+
             if ($datedebut==$datefin)
             { // un seul jour
                 switch($valeur['type']){
@@ -410,7 +410,7 @@ class Planning
                     default: $caseConge = $this->creerJour(new DateTime($datedebut), CF2M_CASE_COURS, CF2M_CASE_COURS);
                             array_push($conges, $caseConge); break;
                 }
-            } else 
+            } else
             { // plusieurs jours consécutifs
                 $intervalle = new DateInterval("P1D");
                 $listeJours = new DatePeriod(new DateTime($datedebut), $intervalle, new DateTime($datefin." + 1 day"));
@@ -421,7 +421,7 @@ class Planning
                 }
             }
         }
-        
+
         // Renvoi de la liste
 //        $this->afficheTableau("Liste des autres congés", $conges);
         return $conges;

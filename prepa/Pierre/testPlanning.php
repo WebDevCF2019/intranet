@@ -13,8 +13,8 @@
 /*
     $unPlanning->afficheListeEntreDeuxDates('2019-01-01', '2019-01-31');
     echo "<hr>";
-*/    
-    
+*/
+
 /*    $unMois = $unPlanning->extraireCalendrier(6,2019);
     $unPlanning->extraireCalendrier(1,2019);
     $unPlanning->extraireCalendrier(12,2019);*/
