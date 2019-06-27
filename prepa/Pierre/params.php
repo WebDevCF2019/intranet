@@ -1,6 +1,8 @@
 <?php
-    define("DB_HOSTNAME","localhost");
-    define("DB_USERNAME","root");
-    define("DB_PASSWORD","");
-    define("DB_DATABASE","intranetv2");
+
+define("DB_HOSTNAME","localhost");
+define("DB_USERNAME","root");
+define("DB_PASSWORD","");
+define("DB_DATABASE","intracf2m");
+
 ?>
