@@ -13,7 +13,7 @@
 /*
     $unPlanning->afficheListeEntreDeuxDates('2019-01-01', '2019-01-31');
     echo "<hr>";
-*/    
+*/
     echo "<h2>Cette semaine</h2>";
     $unPlanning->extraireCetteSemaine();
     echo "<h2>La semaine prochaine</h2>";

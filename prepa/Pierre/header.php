@@ -5,4 +5,4 @@
         <title>Planning</title>
         <link type="text/css" rel="stylesheet" href="calendrier.css" />
     </head>
-    <body>    
+    <body>

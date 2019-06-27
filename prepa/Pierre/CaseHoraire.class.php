@@ -8,7 +8,7 @@ class CaseHoraire {
 
     public function __construct(DateTime $date, int $type) {
         $this->dateCase = $date;
-        
+
         switch($type)
         {
         case 0 : $this->typeCase = CF2M_CASE_COURS; break;
