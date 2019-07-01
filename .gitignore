@@ -4,7 +4,8 @@
 /.idea/
 
 #config
-/config.php/
+config.php
 
 #index
-/index.php/
+index.php
+
