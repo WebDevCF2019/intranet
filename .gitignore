@@ -2,3 +2,9 @@
 /nbproject/
 # PHPStorm folder
 /.idea/
+
+#config
+/config.php/
+
+#index
+/index.php/
