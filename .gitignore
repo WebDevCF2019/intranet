@@ -7,3 +7,5 @@ config.php
 
 index.php
 
+/vendor/
+
