@@ -1,0 +1,47 @@
+.calendrier {
+    background-color: white;
+}
+
+tr {
+    height:50px;
+}
+
+td {
+    width:50px;
+    text-align: center;
+}
+
+.AM1PM1 {   /* congé */
+    background-color: blue;
+    color: white;
+}
+
+.AM0PM1 {   /* congé matin et cours après-midi */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feffff+0,ffffff+50,0000ff+100 */
+background: #feffff; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #feffff 0%, #ffffff 40%, #0000ff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #feffff 0%,#ffffff 40%,#0000ff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #feffff 0%,#ffffff 40%,#0000ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#0000ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.AM1PM0 {   /* cours matin et congé après-midi */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0000ff+0,ffffff+50,feffff+100 */
+background: #0000ff; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #0000ff 0%, #ffffff 60%, #feffff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #0000ff 0%,#ffffff 60%,#feffff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #0000ff 0%,#ffffff 60%,#feffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', endColorstr='#feffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.AM2PM2 {   /* férié */
+    background-color: aqua;
+}
+
+.AM3PM3 {   /* extra-légal */
+    background-color: orange;
+}
+
+.AM4PM4 {   /* week-end */
+    background-color: lightgrey;
+}
