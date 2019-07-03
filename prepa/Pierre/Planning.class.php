@@ -148,7 +148,11 @@ class Planning
         $dernierJour = new DateTime('Friday this week');
 
         $liste = $this->extraireListeEntreDeuxDates($premierJour->format("Y-m-d"), $dernierJour->format("Y-m-d"));
+<<<<<<< HEAD
         //$this->afficheListe($liste);
+=======
+        $this->afficheListe($liste);
+>>>>>>> 8c75838589462526db504811a887d3daf4195eda
         return $liste;
     }
 
@@ -157,7 +161,11 @@ class Planning
         $dernierJour = new DateTime('Friday next week');
 
         $liste = $this->extraireListeEntreDeuxDates($premierJour->format("Y-m-d"), $dernierJour->format("Y-m-d"));
+<<<<<<< HEAD
         //$this->afficheListe($liste);
+=======
+        $this->afficheListe($liste);
+>>>>>>> 8c75838589462526db504811a887d3daf4195eda
         return $liste;
     }
 
@@ -212,9 +220,15 @@ class Planning
     }
 
     public function remplirListeDates(bool $avant) {
+<<<<<<< HEAD
         $moisDebutSession = (int)$this->premiereDate->format('n');
         $anneeDebutSession = $this->premiereDate->format('Y');
         $moisFinSession = (int)$this->derniereDate->format('n');
+=======
+        $moisDebutSession = $this->premiereDate->format('n');
+        $anneeDebutSession = $this->premiereDate->format('Y');
+        $moisFinSession = $this->derniereDate->format('n');
+>>>>>>> 8c75838589462526db504811a887d3daf4195eda
         $anneeFinSession = $this->derniereDate->format('Y');
 
         if ($avant==TRUE){ // Compléter les dates AVANT le début de la session

@@ -26,22 +26,21 @@ foreach($laSemaine as $cle=>$valeur){
 
 
 $pdf = new feuilleSignature($infosSemaine);
-
+/*
 $pdf->AddPage();
 $pdf->picto("images/web.png");
 $pdf->entete("WEB");
 $pdf->listeStagiaires($stagiairesWEB);
 $pdf->banniere();
 $pdf->Output("I","WEB01072019.pdf");
+*/
 
-/*
 $pdf->AddPage();
 $pdf->picto("images/pao.png");
 $pdf->entete("PAO");
 $pdf->listeStagiaires($stagiairesPAO);
 $pdf->banniere();
 $pdf->Output("I","PAO01072019.pdf");
-*/
 /*
 $pdf->AddPage();
 $pdf->picto("images/amm.png");
