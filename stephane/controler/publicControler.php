@@ -13,7 +13,7 @@
 
 //var_dump($idthefiliere);
 
-    $idthefiliere = (int) $_GET['idlafiliere'];
+    $idlafiliere = (int) $_GET['idlafiliere'];
 
     $detailFiliere = $thefilliereM->selectionnerFiliereParId($idlafiliere);
 
