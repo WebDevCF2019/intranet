@@ -1,9 +1,9 @@
 # PHPStorm folder
 /.idea/
+# Netbeans
 /nbproject/
 
-config.php
-index.php
+# dependencies
 /vendor/
 
 
