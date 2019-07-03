@@ -24,6 +24,16 @@ class Planning
         $this->derniereDate = new DateTime(date($finSession));
         $this->unjour = new DateInterval('P1D');
 
+        $this->calculPlanning();
+
+//        $this->afficheTableau("Liste complète",$this->listeDates);
+        return $this->listeDates;
+    }
+
+    public function calculPlanning(){
+        $debutSession = $this->premiereDate->format('Y-m-d');
+        $finSession = $this->derniereDate->format('Y-m-d');
+
         // on construit le tableau avec toutes les dates possibles
         $tabcle = array();
         $tabcle = $this->calculToutesLesDates();
@@ -88,9 +98,6 @@ class Planning
         // fusion des tableaux
         $this->listeDates = array_merge($this->listeDates,$listeFeries);
         $this->listeDates = array_merge($this->listeDates,$listeExtra);
-
-//        $this->afficheTableau("Liste complète",$this->listeDates);
-        return $this->listeDates;
     }
 
     public function debut():DateTime {
@@ -136,13 +143,40 @@ class Planning
     }
     /* ----------------------------------------------------------------------- */
 
+    public function extraireCetteSemaine(): array {
+        $premierJour = new DateTime('Monday this week');
+        $dernierJour = new DateTime('Friday this week');
+
+        $liste = $this->extraireListeEntreDeuxDates($premierJour->format("Y-m-d"), $dernierJour->format("Y-m-d"));
+<<<<<<< HEAD
+        //$this->afficheListe($liste);
+=======
+        $this->afficheListe($liste);
+>>>>>>> 8c75838589462526db504811a887d3daf4195eda
+        return $liste;
+    }
+
+    public function extraireSemaineProchaine(): array {
+        $premierJour = new DateTime('Monday next week');
+        $dernierJour = new DateTime('Friday next week');
+
+        $liste = $this->extraireListeEntreDeuxDates($premierJour->format("Y-m-d"), $dernierJour->format("Y-m-d"));
+<<<<<<< HEAD
+        //$this->afficheListe($liste);
+=======
+        $this->afficheListe($liste);
+>>>>>>> 8c75838589462526db504811a887d3daf4195eda
+        return $liste;
+    }
+
     public function extraireListeMois(int $mois,int $annee): array {
         $nomMois = $this->convertirNumeroMoisVersNomMois($mois);
 
         $premierJour = new DateTime('first day of '.$nomMois.$annee);
         $dernierJour = new DateTime('last day of '.$nomMois.$annee);
 
-        return $this->extraireListeEntreDeuxDates($premierJour->format("Y-m-d"), $dernierJour->format("Y-m-d"));
+        $liste = $this->extraireListeEntreDeuxDates($premierJour->format("Y-m-d"), $dernierJour->format("Y-m-d"));
+        return $liste;
     }
 
     public function extraireCalendrier($mois, $annee): array {
@@ -185,10 +219,16 @@ class Planning
         return $joursMois;
     }
 
-    private function remplirListeDates(bool $avant) {
+    public function remplirListeDates(bool $avant) {
+<<<<<<< HEAD
+        $moisDebutSession = (int)$this->premiereDate->format('n');
+        $anneeDebutSession = $this->premiereDate->format('Y');
+        $moisFinSession = (int)$this->derniereDate->format('n');
+=======
         $moisDebutSession = $this->premiereDate->format('n');
         $anneeDebutSession = $this->premiereDate->format('Y');
         $moisFinSession = $this->derniereDate->format('n');
+>>>>>>> 8c75838589462526db504811a887d3daf4195eda
         $anneeFinSession = $this->derniereDate->format('Y');
 
         if ($avant==TRUE){ // Compléter les dates AVANT le début de la session
@@ -318,7 +358,6 @@ class Planning
 
     private function calculJoursFeries(int $annee): array {
         $listeFeries = array();
-        $uneDate;
 
         // Jours fixes
         $uneDate = new DateTime('first day of january '.$annee);    // jour de l'an - 1er janvier
@@ -364,7 +403,6 @@ class Planning
 
     private function calculExtraLegalCF2M(int $annee): array {
         $extraLegalCF2M = array();
-        $uneDate;
 
         // Jours fixes
         $uneDate = new DateTime('first day of january '.$annee); $uneDate = $uneDate->add(new DateInterval('P1D'));    // 2ème jour de l'an - 2 janvier

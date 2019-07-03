@@ -18,10 +18,10 @@ class Calendrier {
         $intervalle = new DateInterval('P1M');
 
         $lesDates = new DatePeriod($debut, $intervalle ,$fin);
-        
+
         foreach($lesDates as $date){
             $this->afficheMois($date->format("n"), $date->format("Y"), $seulementCeMois);
-        }        
+        }
     }
 
     public function afficheMois(int $mois, int $annee, bool $seulementCeMois) {
@@ -38,22 +38,22 @@ class Calendrier {
             } else {
                 // Le calendrier n'est pas entièrement compris dans la session. Il manque le début, on remplit avec les dates manquantes
                 $this->planningSession->remplirListeDates(TRUE);
-                
+
                 $liste = $this->planningSession->extraireCalendrier($mois, $annee);
 
                 $this->afficheGrille($liste, $mois, $annee, $seulementCeMois);
-                }    
+                }
         } elseif ($dateMaximale > $this->planningSession->fin()) {
             if ($dateMinimale > $this->planningSession->fin()){
                 echo "<h2>Ce calendrier (".$mois."-".$annee.") ne peut pas être calculé. Il est après la session.</h2>";
             } else {
                 // Le calendrier n'est pas entièrement compris dans la session. Il manque la fin, on remplit avec les dates manquantes
                 $this->planningSession->remplirListeDates(FALSE);
-                
+
                 $liste = $this->planningSession->extraireCalendrier($mois, $annee);
 
                 $this->afficheGrille($liste, $mois, $annee, $seulementCeMois);
-                }    
+                }
         } else {
             $liste = $this->planningSession->extraireCalendrier($mois, $annee);
             $this->afficheGrille($liste, $mois, $annee, $seulementCeMois);
@@ -83,7 +83,7 @@ class Calendrier {
                 $classeCSS = "AM".$classeMatin."PM".$classeApresMidi;
 
                 if ( ($seulementCeMois==TRUE) && ( ($valeur['AM']->date()->format("m")!=$mois) || ($valeur['AM']->type()==CF2M_CASE_INCONNU) ) ) {
-                    echo "<td id='".$cle."'></td>";    
+                    echo "<td id='".$cle."'></td>";
                 } else {
                     echo "<td id='".$cle."' class='".$classeCSS."'>".$valeur['AM']->date()->format("d")."</td>";
                 }

@@ -1,4 +1,12 @@
 # PHPStorm folder
 /.idea/
+<<<<<<< HEAD
 config.php
 index.php
+=======
+
+
+
+/vendor/
+
+>>>>>>> 1353d92b32042529b695958e73b89e0aaf2261ff
