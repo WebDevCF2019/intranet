@@ -3,9 +3,7 @@
 # PHPStorm folder
 /.idea/
 
-config.php
 
-index.php
 
 /vendor/
 

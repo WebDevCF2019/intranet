@@ -13,7 +13,7 @@ class filliere{
  */
 public function __construct(array $datas=[])
 {
-    if (empty($datas)){
+    if (!empty($datas)){
          $this->hydrate($datas);
     }
     
@@ -22,7 +22,7 @@ public function __construct(array $datas=[])
 protected function hydrate(array $values){
     foreach($values AS $key => $values){
         $setterName = "set".ucfirst($key);
-        if(method_exists($this, setterName)){
+        if(method_exists($this, $setterName)){
             $this->$setterName($values);
         }
   }
@@ -141,3 +141,6 @@ protected function hydrate(array $values){
 
 
 }
+
+//$test = new filliere();
+//var_dump($test);
