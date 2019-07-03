@@ -20,7 +20,7 @@
                 {# Faites apparaître les sections (celles du menu) cliquables dans un nouveau h4, sinon écrivez "Pas encore d'éléments dans le menu" #}
                 {% for item in detailfiliere %}
                     <h4 class="mt-3">{{ item.lenom }} | <a href="?idlafiliere={{ item.idlafiliere }}">modifier</a> | <a href="?delete={{ item.idlafiliere }}">supprimer</a></h4>
-                    <p>{{ item.thedesc|truncate(100,true) }}</p>
+                    <p>{{ item.lacronyme|truncate(100,true) }}</p>
                     <h6>Stagiaires:</h6>
                     {# création de 2 variables pour éclater (avec split) le nom et prénom des stagiaires #}
                     {% set lenom = item.lenom|split("|||") %}

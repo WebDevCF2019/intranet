@@ -54,7 +54,7 @@ class filiereManager {
      if($recup->rowCount()===0){
          return [];
      }
-      return $recup->fetch(PDO::FETCH_ASSOC);
+      return $recup->fetchall(PDO::FETCH_ASSOC);
     
  }
 
