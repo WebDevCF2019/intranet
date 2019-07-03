@@ -161,5 +161,5 @@ protected function hydrate (array $tablehydrate ){
 
 }
 
-$lulu= new lutilisateur();
+
 var_dump($lulu);
