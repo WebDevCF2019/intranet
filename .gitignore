@@ -1,5 +1,6 @@
 # PHPStorm folder
 /.idea/
+/nbproject/
 
 config.php
 index.php
