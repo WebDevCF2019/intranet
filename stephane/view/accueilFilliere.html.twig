@@ -1,0 +1,49 @@
+{# on étend le template depuis base.html.twig, qui est donc son parent #}
+{% extends "template1.html.twig" %}
+
+{# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
+{% block title %}{{ parent() }} | Accueil de l'admin{% endblock %}
+
+{% block menuhaut %}
+{% include "hautEtmenu.html.twig" %}
+{% endblock %}
+
+{% block milieu %}
+    <!-- Page Content -->
+<main role="main" class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-5">Administration du CF2m</h1>
+                <p class="lead">Gestion des fillières</p>
+            </div>
+            <div class="col-lg-6 text-left">
+                {# Faites apparaître les sections (celles du menu) cliquables dans un nouveau h4, sinon écrivez "Pas encore d'éléments dans le menu" #}
+                {% for item in section %}
+                    <h4 class="mt-3">{{ item.lenom }} | <a href="?idlafiliere={{ item.idlafilliere }}">modifier</a> | <a href="?delete={{ item.idlafiliere }}">supprimer</a></h4>
+                    <p>{{ item.thedesc|truncate(100,true) }}</p>
+                    <h6>Stagiaires:</h6>
+                    {# création de 2 variables pour éclater (avec split) le nom et prénom des stagiaires #}
+                    {% set lenom = item.lenom|split("|||") %}
+                    
+                    {% for user in lenom %}
+                        {# si vide #}
+                        {% if user is empty %}
+                            <p>Pas de filiere</p>
+                        {% else %}
+                        {# on utilise loop.index0 pour prendre le prénom associé au nom sur lequel on fait la boucle #}
+                        <p>{{ user }} {{ lenom[loop.index0] }}</p>
+                        {%  endif %}
+                    {% endfor %}
+
+                {% else %}
+                <h4 class="mt-3">Pas encore de fillière sur notre page accueil</h4>
+                {% endfor %}
+            </div>
+        </div>
+</main>
+
+{% endblock %}
+
+{% block bas %}
+{% include "footer.html.twig" %}
+{% endblock %}
