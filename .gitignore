@@ -2,3 +2,8 @@
 /nbproject/
 # PHPStorm folder
 /.idea/
+
+
+
+/vendor/
+
