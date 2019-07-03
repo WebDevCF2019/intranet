@@ -1,6 +1,6 @@
 <?php
 
-class filliereManager {
+class filiereManager {
 
     private $db; //connexion MyPDO
 

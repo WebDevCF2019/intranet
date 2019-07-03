@@ -55,7 +55,7 @@ try{
 
     // create common's Managers
 
-    $thefilliereM = new filliereManager($connexion);
+    $thefiliereM = new filiereManager($connexion);
 
     
     
