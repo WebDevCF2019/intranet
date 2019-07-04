@@ -17,7 +17,7 @@
 
     $detailFiliere = $thefilliereM->selectionnerFiliereParId($idlafiliere);
 
-    echo $twig->render("accueilFilliere.html.twig",["lemenu"=>
+    echo $twig->render("accueilutilisateur.html.twig",["lemenu"=>
     $menu, "detailfiliere"=>$detailFiliere]);
 
 
@@ -25,5 +25,5 @@
 
     $filiere= $thefilliereM->selectionnerFiliereIndexPublic();
 
-    echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
+    echo $twig->render("accueilutilisateur.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
   }
