@@ -1,0 +1,135 @@
+format 221
+
+classcanvas 128356 class_ref 141796 // Role
+  classdiagramsettings member_max_width 0 end
+  xyz 49.48 247.9 2000
+end
+classcanvas 128452 class_ref 141636 // Planning
+  classdiagramsettings member_max_width 0 end
+  xyz 506 391 2000
+end
+classcanvas 128484 class_ref 141924 // Droit
+  classdiagramsettings member_max_width 0 end
+  xyz 49.48 387 2000
+end
+classcanvas 128868 class_ref 142052 // Filière
+  classdiagramsettings member_max_width 0 end
+  xyz 652.42 495.52 2000
+end
+classcanvas 128996 class_ref 142180 // Session
+  classdiagramsettings member_max_width 0 end
+  xyz 655.82 278.32 2000
+end
+classcanvas 129092 class_ref 141764 // DossierPedagogique
+  classdiagramsettings member_max_width 0 end
+  xyz 328 81 2000
+end
+classcanvas 129220 class_ref 141892 // FicheSuivi
+  classdiagramsettings member_max_width 0 end
+  xyz 503 59 2000
+end
+classcanvas 129348 class_ref 142020 // Critère
+  classdiagramsettings member_max_width 0 end
+  xyz 645 58 2000
+end
+classcanvas 129508 class_ref 142436 // Stagiaire
+  classdiagramsettings member_max_width 0 end
+  xyz 248.08 176.28 2000
+end
+classcanvas 129764 class_ref 142564 // Employé
+  classdiagramsettings member_max_width 0 end
+  xyz 207.32 17.8 2000
+end
+classcanvas 129892 class_ref 141668 // Utilisateur
+  classdiagramsettings member_max_width 0 end
+  xyz 40.68 70.68 3005
+end
+classcanvas 130372 class_ref 142148 // DossierAdministratif
+  classdiagramsettings member_max_width 0 end
+  xyz 243 340 2000
+end
+classcanvas 130532 class_ref 142820 // Congé
+  classdiagramsettings member_max_width 0 end
+  xyz 380.96 432.72 2000
+end
+classcanvas 130756 class_ref 142276 // Presence
+  classdiagramsettings member_max_width 0 end
+  xyz 233 430 2000
+end
+classcanvas 131012 class_ref 142404 // Statistiques
+  classdiagramsettings member_max_width 0 end
+  xyz 97 495 2000
+end
+classcanvas 131396 class_ref 142532 // Justificatif
+  classdiagramsettings member_max_width 0 end
+  xyz 214 553 2000
+end
+classcanvas 131780 class_ref 142660 // Rattrapage
+  classdiagramsettings member_max_width 0 end
+  xyz 87 568 2000
+end
+classcanvas 131812 class_ref 143076 // Inscription
+  classdiagramsettings member_max_width 0 end
+  xyz 454 209 2000
+end
+relationcanvas 128740 relation_ref 134884 // <association>
+  from ref 128356 z 2001 to ref 128484
+  no_role_a no_role_b
+  multiplicity_a_pos 57 371 3000 multiplicity_b_pos 57 315 3000
+end
+relationcanvas 129124 relation_ref 135012 // <association>
+  from ref 128868 z 2001 to ref 128996
+  no_role_a no_role_b
+  multiplicity_a_pos 662 445 3000 multiplicity_b_pos 672 476 3000
+end
+relationcanvas 129604 relation_ref 142148 // <composition>
+  from ref 129220 z 2001 to ref 129348
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129732 relation_ref 142276 // <association>
+  from ref 129092 z 2001 to ref 129220
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130020 relation_ref 134756 // 
+  from ref 129892 z 3006 to ref 128356
+  no_role_a no_role_b
+  multiplicity_a_pos 55 231 3000 multiplicity_b_pos 55 185 3000
+end
+relationcanvas 130116 relation_ref 142660 // <association>
+  from ref 129508 z 2001 to ref 131812
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130148 relation_ref 135396 // <generalisation>
+  from ref 129764 z 3006 to ref 129892
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130244 relation_ref 142788 // <aggregation>
+  from ref 131812 z 2001 to ref 129092
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130276 relation_ref 135524 // <generalisation>
+  from ref 129508 z 3006 to ref 129892
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130500 relation_ref 142916 // <aggregation>
+  from ref 131812 z 2001 to ref 130372
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131524 relation_ref 143556 // <association>
+  from ref 131396 z 2001 to ref 130756
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131908 relation_ref 150212 // <association>
+  from ref 131812 z 2001 to ref 128996
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

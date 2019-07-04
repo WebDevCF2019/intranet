@@ -1,0 +1,101 @@
+format 221
+
+classcanvas 128068 class_ref 135012 // Utilisateur
+  simpleclassdiagramsettings end
+  xyz 766 117 2000
+end
+classcanvas 128196 class_ref 134596 // Administrateur
+  simpleclassdiagramsettings end
+  xyz 31 280 2000
+end
+classcanvas 128324 class_ref 134724 // AdminTech
+  simpleclassdiagramsettings end
+  xyz 166 95 2000
+end
+classcanvas 128452 class_ref 128228 // AdminPedago
+  simpleclassdiagramsettings end
+  xyz 161 320 2000
+end
+classcanvas 128580 class_ref 134852 // AdminAdminitratif
+  simpleclassdiagramsettings end
+  xyz 162 534 2000
+end
+subject 128708 ""
+  xyzwh 297 43 2000 408 612
+usecasecanvas 128836 usecase_ref 134596 // Gérer Droit
+  xyzwh 529 56 3005 91 49 label_xy 550 71
+end
+usecasecanvas 128964 usecase_ref 134724 // Gérer Rôle
+  xyzwh 447 117 3005 91 45 label_xy 466 131
+end
+usecasecanvas 129092 usecase_ref 134852 // Gérer Utilisateur
+  xyzwh 360 174 3005 113 49 label_xy 377 189
+end
+usecasecanvas 129220 usecase_ref 128356 // S'authentifier
+  xyzwh 595 291 3005 103 51 label_xy 617 308
+end
+usecasecanvas 130372 usecase_ref 134980 // Gérer Filière
+  xyzwh 359 255 3005 93 47 label_xy 373 268
+end
+usecasecanvas 130500 usecase_ref 135108 // Gérer Session
+  xyzwh 361 333 3005 95 47 label_xy 372 349
+end
+usecasecanvas 130628 usecase_ref 135236 // Gérer Inscription
+  xyzwh 348 404 3005 115 49 label_xy 366 418
+end
+usecasecanvas 131908 usecase_ref 135492 // Gérer Congé
+  xyzwh 474 516 3005 99 51 label_xy 492 533
+end
+line 129348 ----
+  from ref 128324 z 3006 to ref 128836
+line 129476 ----
+  from ref 128324 z 3006 to ref 128964
+line 129604 ----
+  from ref 128324 z 3006 to ref 129092
+line 129732 ----
+  from ref 129092 z 3006 to ref 128068
+simplerelationcanvas 129860 simplerelation_ref 134596
+  from ref 128836 z 3006 stereotype "<<include>>" xyz 579 197 3000 to ref 129220
+end
+simplerelationcanvas 130116 simplerelation_ref 134724
+  from ref 128964 z 3006 stereotype "<<include>>" xyz 538 225 3000 to ref 129220
+end
+simplerelationcanvas 130244 simplerelation_ref 134852
+  from ref 129092 z 3006 stereotype "<<include>>" xyz 501 256 3000 to ref 129220
+end
+line 130884 ----
+  from ref 128452 z 3006 to ref 130372
+line 131012 ----
+  from ref 128452 z 3006 to ref 130500
+line 131140 ----
+  from ref 128452 z 3006 to ref 130628
+simplerelationcanvas 131396 simplerelation_ref 134980
+  from ref 130372 z 3006 stereotype "<<include>>" xyz 493 295 3000 to ref 129220
+end
+simplerelationcanvas 131524 simplerelation_ref 135108
+  from ref 130500 z 3006 stereotype "<<include>>" xyz 495.5 334.5 3000 to ref 129220
+end
+simplerelationcanvas 131652 simplerelation_ref 135236
+  from ref 130628 z 3006 stereotype "<<include>>" xyz 495.5 370.5 3000 to ref 129220
+end
+simplerelationcanvas 132164 simplerelation_ref 135492
+  from ref 131908 z 3006 stereotype "<<include>>" xyz 553 427.5 3000 to ref 129220
+end
+line 132676 ----
+  from ref 128580 z 3006 to ref 131908
+relationcanvas 132804 relation_ref 134596 // <generalisation>
+  from ref 128324 z 2001 to ref 128196
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132932 relation_ref 134724 // <generalisation>
+  from ref 128452 z 2001 to ref 128196
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133060 relation_ref 134852 // <generalisation>
+  from ref 128580 z 2001 to ref 128196
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
