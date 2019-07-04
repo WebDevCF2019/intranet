@@ -2,10 +2,10 @@
 {% extends "template1.html.twig" %}
 
 {# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
-{% block title %}{{ parent() }} | Admin | Modifier une section{% endblock %}
+{% block title %}{{ parent() }} | Admin | Modifier une filiere{% endblock %}
 
 {% block menuhaut %}
-{% include "admin/menuHautAdmin.html.twig" %}
+{% include "hautEtMenu.html.twig" %}
 {% endblock %}
 
 {% block milieu %}
@@ -18,12 +18,14 @@
             </div>
             <div class="col-lg-6 text-left">
                 {# Affichage du formulaire #}
-                <form action="" method="post" name="updateFiliere">
-                    <input name="lenom" type="text" placeholder="Titre de la filiere" value="{{ contenu.lenom }}" required><br>
-                    <textarea name="lacronyme" placeholder="acronyme" required>{{ contenu.lacronyme }}</textarea><br>
-                    <input type="hidden" name="idlafiliere" value="{{ contenu.idlafiliere }}">
+                
+                    <form action="" method="post" name="update">
+                    <input name="lenom" type="text" placeholder="Titre de la filiere" value="{{ section.lenom }}" required><br>
+                    <textarea name="lacronyme" placeholder="acronyme" required>{{ section.lacronyme }}</textarea><br>
+                    <input type="hidden" name="idlafiliere" value="{{ section.idlafiliere }}">
                     <input type="submit" value="Envoyer">
                 </form>
+                
                 <h3>{{ error }}</h3>
             </div>
         </div>
