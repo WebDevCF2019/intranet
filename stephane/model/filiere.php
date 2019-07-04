@@ -1,6 +1,6 @@
 <?php
 
-class filliere{
+class filiere{
 
    protected $idlafilliere;
    protected $lenom;
@@ -33,7 +33,7 @@ protected function hydrate(array $values){
     /**
     * Get the value of idlafilliere
     */ 
-   public function getIdlafilliere()
+   public function getIdlafiliere()
    {
       return $this->idlafilliere;
    }
@@ -43,10 +43,10 @@ protected function hydrate(array $values){
     *
     * @return  self
     */ 
-   public function setIdlafilliere( int $idlafilliere): void
+   public function setIdlafiliere( int $idlafiliere): void
    {
-       if(!empty($idlafilliere)){
-      $this->idlafilliere = $idlafilliere;
+       if(!empty($idlafiliere)){
+      $this->idlafiliere = $idlafiliere;
        }
       
    }

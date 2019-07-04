@@ -3,7 +3,7 @@
  * public
  */
 
- $menu = $thefilliereM->creerMenu();
+ $menu = $thefiliereM->creerMenu();
 
  /**
   * 
@@ -13,9 +13,9 @@
 
 //var_dump($idthefiliere);
 
-    $idthefiliere = (int) $_GET['idlafiliere'];
+    $idlafiliere = (int) $_GET['idlafiliere'];
 
-    $detailFiliere = $thefilliereM->selectionnerFiliereParId($idlafiliere);
+    $detailFiliere = $thefiliereM->selectionnerFiliereParId($idlafiliere);
 
     echo $twig->render("accueilFilliere.html.twig",["lemenu"=>
     $menu, "detailfiliere"=>$detailFiliere]);
