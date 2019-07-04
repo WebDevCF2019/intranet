@@ -103,6 +103,37 @@ class filiereManager {
    
 }
 
+//insert filiere
+public function createfiliere(filiere $datas) {
+
+
+    // vérification que les champs soient valides (pas vides)
+
+    if(empty($datas->getLenom())||empty($datas->getlacronyme())){
+        return false;
+    }
+
+    $sql = "INSERT INTO lafiliere (lenom,lacronyme) VALUES (?,?);";
+
+    $insert = $this->db->prepare($sql);
+
+    $insert->bindValue(1,$datas->getLenom(),PDO::PARAM_STR);
+    $insert->bindValue(2,$datas->getLacronyme(),PDO::PARAM_STR);
+
+
+    // gestion des erreurs avec try catch
+    try {
+        $insert->execute();
+        return true;
+
+    }catch(PDOException $e){
+        echo $e->getCode();
+        return false;
+
+    }
+
+}
+
    
 
 }

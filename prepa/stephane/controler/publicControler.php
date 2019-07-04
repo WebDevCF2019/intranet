@@ -41,6 +41,7 @@ var_dump($recupFiliere);
         exit();
         
       }
+     
 
       if(empty($_POST)){
            
@@ -58,15 +59,50 @@ var_dump($update);
              echo $twig->render("updateFiliere.html.twig",["section"=>$recupFiliere]);
          }
       }
+
+
+
     
+    //insert new filiere
+    }elseif (isset($_GET['insert'])){
+
+      if(empty($_POST)){
+
+
+    // appel de la vue
+    echo $twig->render("ajoutFiliere.html.twig");
+      }
+
+        else{
+
+    // on crée une instance de thesection avec le formulaire POST en paramètre
+    $insert = new filiere($_POST);
+
+    // on appel le manager et on utilise la méthode d'insertion (true en cas de réussite et false en cas d'échec)
+
+    $forinsert = $thefiliereM->createfiliere($insert);
+
+    // si l'insertion est réussie
+    if($forinsert){
+        header("Location: ./");
+    }else{
+
+        // appel de la vue avec affichage d'une erreur
+        echo $twig->render("admin/ajoutSectionAdmin.html.twig",["error"=>"Erreur lors de l'insertion, veuillez recommencer"]);
 
     }
-    else {
+
+  
+  }
+
+
+    }else {
 
       $filiere= $thefiliereM->selectionnerFiliereIndexPublic();
   
       echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
     }
+  
     
   
   
