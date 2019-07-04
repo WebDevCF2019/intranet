@@ -35,27 +35,18 @@ $pdf->banniere();
 $pdf->Output("I","WEB01072019.pdf");
 */
 
-/*
-
 $pdf->AddPage();
 $pdf->picto("images/pao.png");
 $pdf->entete("PAO");
 $pdf->listeStagiaires($stagiairesPAO);
 $pdf->banniere();
 $pdf->Output("I","PAO01072019.pdf");
-
-*/
-
-
 /*
-
 $pdf->AddPage();
 $pdf->picto("images/amm.png");
 $pdf->entete("AMM");
 $pdf->listeStagiaires($stagiairesAMM);
 $pdf->banniere();
 $pdf->Output("I","AMM01072019.pdf");
-
 */
-
 ?>
