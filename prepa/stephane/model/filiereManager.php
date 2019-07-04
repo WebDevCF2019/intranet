@@ -57,9 +57,26 @@ class filiereManager {
     
  }
 
+
+ //update filiere
+ public function updateFiliereParId(int $idlafiliere): array{
+    if(empty($idlafiliere)){
+        return [];
+
+    }
+    $sql="SELECT lenom, lacronyme, idlafiliere FROM lafiliere WHERE idlafiliere=$idlafiliere ;";
+    $recup = $this->db->query($sql);
+    
+
+    if($recup->rowCount()===0){
+        return [];
+    }
+     return $recup->fetch(PDO::FETCH_ASSOC);
+}
+
  // Requête pour mettre à jour une filiere en vérifant si la variable get idsection correspond bien à la variable post idfiliere (usurpation d'identité)
 
- public function updateFiliere(thefiliere $datas, int $get){
+ public function updateFiliere(filiere $datas, int $get): bool{
 
     // vérification que les champs soient valides (pas vides)
     if(empty($datas->getLenom())||empty($datas->getLacronyme())||empty($datas->getIdlafiliere())){
@@ -79,16 +96,16 @@ class filiereManager {
     $update->bindValue(2,$datas->getLacronyme(),PDO::PARAM_STR);
     $update->bindValue(3,$datas->getIdlafiliere(),PDO::PARAM_INT);
 
-    try{
-        $update->execute();
-        return true;
-    }catch (PDOException $e){
-        echo $e->getCode();
-        return false;
-    }
+    $update->execute();
+    return true;
+
+
+   
+}
+
+   
 
 }
 
 
 
-}
