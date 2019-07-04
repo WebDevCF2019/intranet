@@ -2,5 +2,8 @@
     "require": {
         "twig/twig": "^2.0",
         "twig/extensions": "^1.5"
+    },
+    "require-dev": {
+        "kint-php/kint": "^3.2"
     }
 }
