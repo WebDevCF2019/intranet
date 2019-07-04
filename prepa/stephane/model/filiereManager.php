@@ -64,7 +64,7 @@ class filiereManager {
         return [];
 
     }
-    $sql="SELECT lenom, lacronyme FROM lafiliere WHERE idlafiliere ;";
+    $sql="SELECT lenom, lacronyme, idlafiliere FROM lafiliere WHERE idlafiliere=$idlafiliere ;";
     $recup = $this->db->query($sql);
     
 
@@ -76,7 +76,7 @@ class filiereManager {
 
  // Requête pour mettre à jour une filiere en vérifant si la variable get idsection correspond bien à la variable post idfiliere (usurpation d'identité)
 
- public function updateFiliere(thefiliere $datas, int $get){
+ public function updateFiliere(filiere $datas, int $get): bool{
 
     // vérification que les champs soient valides (pas vides)
     if(empty($datas->getLenom())||empty($datas->getLacronyme())||empty($datas->getIdlafiliere())){
@@ -95,6 +95,9 @@ class filiereManager {
     $update->bindValue(1,$datas->getLenom(),PDO::PARAM_STR);
     $update->bindValue(2,$datas->getLacronyme(),PDO::PARAM_STR);
     $update->bindValue(3,$datas->getIdlafiliere(),PDO::PARAM_INT);
+
+    $update->execute();
+    return true;
 
 
    

@@ -48,9 +48,9 @@ var_dump($recupFiliere);
       }else{
 
          $update = new filiere($_POST);
-
+var_dump($update);
          $updateFiliere = $thefiliereM->updateFiliere($update, $updateId);
-
+         var_dump($updateFiliere);
          if($updateFiliere){
            header("location: ./");
          }else{

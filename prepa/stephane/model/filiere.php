@@ -2,7 +2,7 @@
 
 class filiere{
 
-   protected $idlafilliere;
+   protected $idlafiliere;
    protected $lenom;
    protected $lacronyme;
    protected $lacouleur;
@@ -35,7 +35,7 @@ protected function hydrate(array $values){
     */ 
    public function getIdlafiliere()
    {
-      return $this->idlafilliere;
+      return $this->idlafiliere;
    }
 
    /**
