@@ -1,6 +1,8 @@
 <?php
 
-class filliere{
+include_once "../kint.phar";
+
+class ledroit{
 
    protected $idledroit;
    protected $ladescription;
@@ -8,7 +10,7 @@ class filliere{
 
 
 /**
- * filliere constructor
+ * ledroit constructor
  */
 public function __construct(array $datas=[])
 {
@@ -88,5 +90,6 @@ protected function hydrate(array $values){
 
 }
 
-//$test = new ledroit();
-//var_dump($test);
+    $data = ["idledroit"=>3,"ladescription"=>4,"lintitule"=>6];
+    $test = new ledroit($data);
+    kint::dump($test);
