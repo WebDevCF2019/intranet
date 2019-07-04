@@ -27,4 +27,8 @@
 
     echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
   }
+
+  if(isset($_GET['update'])&& ctype_digit($_GET['update'])&&!empty($_GET['update'])){
+    
+  }
   
