@@ -23,12 +23,48 @@
 
   }else {
 
-    $filiere= $thefilliereM->selectionnerFiliereIndexPublic();
+    $filiere= $thefiliereM->selectionnerFiliereIndexPublic();
 
     echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
   }
 
+
+  /**
+   * update de la filiere
+   */
+
   if(isset($_GET['update'])&& ctype_digit($_GET['update'])&&!empty($_GET['update'])){
+
+    $updateId = (int) $_GET['update'];
+
+    $recupFiliere = $thefiliereM->selectionnerFiliereParId($updateId);
+
+      if(empty($recupFiliere)){
+
+        header("location: ./");
+        exit();
+        
+      }
+
+      if(empty($_POST)){
+           
+        echo $twig->render("updateFiliere.html.twig",["contenu"=>$recupFiliere]);
+      }else{
+
+         $update = new filiere($_POST);
+
+         $updateFiliere = $thefiliereM->updateFiliere($update, $updateId);
+
+         if($updateFiliere){
+           header("location: ./");
+         }else{
+             
+             echo $twig->render("updateFiliere.html.twig",["contenu"=>$recupFiliere]);
+         }
+      }
     
-  }
+
+    }
+    
+  
   
