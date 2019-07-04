@@ -27,3 +27,4 @@
 
     echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
   }
+  
