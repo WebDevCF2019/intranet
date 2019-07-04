@@ -1,4 +1,5 @@
 <?php
+
 /**
  * public
  */
@@ -21,11 +22,6 @@
     $menu, "detailfiliere"=>$detailFiliere]);
 
 
-  }else {
-
-    $filiere= $thefiliereM->selectionnerFiliereIndexPublic();
-
-    echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
   }
 
 
@@ -33,12 +29,12 @@
    * update de la filiere
    */
 
-  if(isset($_GET['update'])&& ctype_digit($_GET['update'])&&!empty($_GET['update'])){
+  elseif(isset($_GET['update'])&& ctype_digit($_GET['update'])&&!empty($_GET['update'])){
 
     $updateId = (int) $_GET['update'];
 
-    $recupFiliere = $thefiliereM->selectionnerFiliereParId($updateId);
-
+    $recupFiliere = $thefiliereM->updateFiliereParId($updateId);
+var_dump($recupFiliere);
       if(empty($recupFiliere)){
 
         header("location: ./");
@@ -48,7 +44,7 @@
 
       if(empty($_POST)){
            
-        echo $twig->render("updateFiliere.html.twig",["contenu"=>$recupFiliere]);
+        echo $twig->render("updateFiliere.html.twig",["section"=>$recupFiliere]);
       }else{
 
          $update = new filiere($_POST);
@@ -59,11 +55,17 @@
            header("location: ./");
          }else{
              
-             echo $twig->render("updateFiliere.html.twig",["contenu"=>$recupFiliere]);
+             echo $twig->render("updateFiliere.html.twig",["section"=>$recupFiliere]);
          }
       }
     
 
+    }
+    else {
+
+      $filiere= $thefiliereM->selectionnerFiliereIndexPublic();
+  
+      echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
     }
     
   
