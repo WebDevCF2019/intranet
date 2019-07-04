@@ -94,6 +94,23 @@ var_dump($update);
 
   
   }
+  
+}elseif (isset($_GET['delete'])&&ctype_digit($_GET['delete'])&&!empty($_GET['delete'])){
+
+    /*
+     *
+     * On veut supprimer une section
+     *
+     */
+
+
+    $deleteId = (int) $_GET['delete'];
+
+    // on utilise le manager pour supprimer la section
+    $fordelete = $thefiliereM->deletefiliere($deleteId);
+
+    header("Location: ./");
+
 
 
     }else {

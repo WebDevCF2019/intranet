@@ -134,6 +134,23 @@ public function createfiliere(filiere $datas) {
 
 }
 
+public function deleteFiliere(int $idlafiliere){
+
+    $sql = "DELETE FROM lafiliere WHERE idlafiliere=?";
+
+    $delete = $this->db->prepare($sql);
+    $delete->bindValue(1,$idlafiliere, PDO::PARAM_INT);
+
+    try{
+        $delete->execute();
+        return true;
+    }catch(PDOException $e){
+        echo $e->getCode();
+        return false;
+    }
+
+}
+
    
 
 }
