@@ -1,11 +1,6 @@
 <?php
 
-$dbhost = 'localhost:3306';
-$dbuser = 'root';
-$dbpass = '';
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass);
 
-mysqli_select_db($conn,'intranetv2');
 
 class lerole
 {
@@ -70,23 +65,7 @@ class lerole
 	
 
 
-	public function add_role($conn,$role){
-		$intitule = $role->getIntitule();
-		$desc = $role->getThedesc();
-		$tcheck = $conn->query("select intitule,thedesc from lerole;");
-		$intitules = [];
-		$descriptions = [];
-		while ($row = mysqli_fetch_assoc($tcheck)) {
-			array_push($intitules,$row["intitule"]);
-			array_push($descriptions,$row["thedesc"]);}
-		var_dump($intitules,$descriptions);	
-		var_dump($intitule,$desc);
-		//if(in_array($intitule,$intitules) and in_array($desc,$descriptions)){
-		$conn->query("INSERT INTO lerole (idlerole, intitule, thedesc) VALUES (NULL, '$intitule' , '$desc');");//}
-	}
+
 	
 	}
 
-	$issou = new lerole(['intitule'=>'issou','thedesc'=>'desc11']);
-
-	$issou->add_role($conn,$issou);
