@@ -10,7 +10,7 @@ class lutilisateur
 {
 protected $idutilisateur;
 protected $lenomutilisateur;
-protected $lemotdepasse="mata";
+protected $lemotdepasse;
 protected $lenom;
 protected $leprenom;
 protected $lemail;
@@ -116,7 +116,7 @@ protected function hydrate (array $tablehydrate ){
      */
     public function setLemotdepasse($lemotdepasse)
     {
-        $this->lemotdepasse = $this->sha256(trim($lemotdepasse));
+        $this->lemotdepasse = $this->password_hash(trim($lemotdepasse));
     }
 
     /**
@@ -148,18 +148,11 @@ protected function hydrate (array $tablehydrate ){
      */
     public function setLuniqueid( string $luniqueid)
     {
-        $this->luniqueid = $this-> sha256(trim($luniqueid));
+        $this->luniqueid = $unique[]=uniqid('key',true);
     }
-    public function sha256(string $arg){
-        return hash("256",$arg);
 
 
-    }
-    public function uniqid (string $idunique){
-        return  $idunique []=uniqid('key',true);
-    }
 
 }
 
 
-var_dump($lulu);
