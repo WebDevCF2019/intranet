@@ -38,18 +38,17 @@ try{
 
 
 
-      $thesectionM = new sessionManager($connexion);
+      $thesessionM = new sessionManager($connexion);
 
 
 
 
-    if (isset($_SESSION['key']) && $_SESSION['key'] == session_id()){
 
 
       require_once "controller/sessionController.php";
 
 
-    } 
+  
 
       
 
