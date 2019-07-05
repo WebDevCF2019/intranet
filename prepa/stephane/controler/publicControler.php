@@ -18,7 +18,7 @@
 
     $detailFiliere = $thefiliereM->selectionnerFiliereParId($idlafiliere);
 
-    echo $twig->render("accueilFilliere.html.twig",["lemenu"=>
+    echo $twig->render("filiere/accueilFilliere.html.twig",["lemenu"=>
     $menu, "detailfiliere"=>$detailFiliere]);
 
 
@@ -45,7 +45,7 @@ var_dump($recupFiliere);
 
       if(empty($_POST)){
            
-        echo $twig->render("updateFiliere.html.twig",["section"=>$recupFiliere]);
+        echo $twig->render("filiere/updateFiliere.html.twig",["section"=>$recupFiliere]);
       }else{
 
          $update = new filiere($_POST);
@@ -56,7 +56,7 @@ var_dump($update);
            header("location: ./");
          }else{
              
-             echo $twig->render("updateFiliere.html.twig",["section"=>$recupFiliere]);
+             echo $twig->render("filiere/updateFiliere.html.twig",["section"=>$recupFiliere]);
          }
       }
 
@@ -70,7 +70,7 @@ var_dump($update);
 
 
     // appel de la vue
-    echo $twig->render("ajoutFiliere.html.twig");
+    echo $twig->render("filiere/ajoutFiliere.html.twig");
       }
 
         else{
@@ -117,7 +117,7 @@ var_dump($update);
 
       $filiere= $thefiliereM->selectionnerFiliereIndexPublic();
   
-      echo $twig->render("accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
+      echo $twig->render("filiere/accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
     }
   
     
