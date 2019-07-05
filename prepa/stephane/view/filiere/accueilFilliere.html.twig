@@ -1,11 +1,11 @@
 {# on étend le template depuis base.html.twig, qui est donc son parent #}
-{% extends "template1.html.twig" %}
+{% extends "filiere/template1.html.twig" %}
 
 {# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
 {% block title %}{{ parent() }} | Accueil de l'admin{% endblock %}
 
 {% block menuhaut %}
-{% include "hautEtmenu.html.twig" %}
+{% include "filiere/hautEtmenu.html.twig" %}
 {% endblock %}
 
 {% block milieu %}
@@ -14,29 +14,34 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1 class="mt-5">Administration du CF2m</h1>
-                <p class="lead">Gestion des fillières</p>
+                <p class="lead">Gestion des filières</p>
+               
             </div>
+            <div <div class="col-lg-12 text-center">
+            <h4><a href="?insert={{addfiliere.idlafiliere}}">Ajouter une filiere</a></h4> 
+            </div>
+            <br>
             <div class="col-lg-6 text-left">
                 {# Faites apparaître les sections (celles du menu) cliquables dans un nouveau h4, sinon écrivez "Pas encore d'éléments dans le menu" #}
-                {% for item in section %}
-                    <h4 class="mt-3">{{ item.lenom }} | <a href="?idlafiliere={{ item.idlafilliere }}">modifier</a> | <a href="?delete={{ item.idlafiliere }}">supprimer</a></h4>
-                    <p>{{ item.thedesc|truncate(100,true) }}</p>
+                {% for item in detailfiliere %}
+                    <h4 class="mt-3">{{ item.lenom }} | <a href="?update={{ item.idlafiliere }}">modifier</a> | <a href="?delete={{ item.idlafiliere }}">supprimer</a></h4>
+                    <p>{{ item.lacronyme }}</p>
                     <h6>Stagiaires:</h6>
                     {# création de 2 variables pour éclater (avec split) le nom et prénom des stagiaires #}
                     {% set lenom = item.lenom|split("|||") %}
                     
-                    {% for user in lenom %}
+                    {% for detailfiliere in lenom %}
                         {# si vide #}
-                        {% if user is empty %}
+                        {% if detailfiliere is empty %}
                             <p>Pas de filiere</p>
                         {% else %}
                         {# on utilise loop.index0 pour prendre le prénom associé au nom sur lequel on fait la boucle #}
-                        <p>{{ user }} {{ lenom[loop.index0] }}</p>
+                        <p>{{ detailfiliere }} {{ lenom[loop.index0] }}</p>
                         {%  endif %}
                     {% endfor %}
 
                 {% else %}
-                <h4 class="mt-3">Pas encore de fillière sur notre page accueil</h4>
+                <h4 class="mt-3">Pas encore de filière sur notre page accueil</h4>
                 {% endfor %}
             </div>
         </div>
@@ -45,5 +50,5 @@
 {% endblock %}
 
 {% block bas %}
-{% include "footer.html.twig" %}
+{% include "filiere/footer.html.twig" %}
 {% endblock %}
