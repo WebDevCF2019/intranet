@@ -1,11 +1,11 @@
 {# on étend le template depuis base.html.twig, qui est donc son parent #}
-{% extends "template1.html.twig" %}
+{% extends "filiere/template1.html.twig" %}
 
 {# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
 {% block title %}{{ parent() }} | Admin | Ajouter une section{% endblock %}
 
 {% block menuhaut %}
-{% include "hautEtMenu.html.twig" %}
+{% include "filiere/hautEtMenu.html.twig" %}
 {% endblock %}
 
 {% block milieu %}
@@ -31,5 +31,5 @@
 {% endblock %}
 
 {% block bas %}
-{% include "footer.html.twig" %}
+{% include "filiere/footer.html.twig" %}
 {% endblock %}
