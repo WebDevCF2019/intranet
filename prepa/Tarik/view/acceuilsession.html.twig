@@ -22,13 +22,14 @@
             <div
                 class="col-lg-6 text-left">
                 {# Faites apparaître les sections (celles du menu) cliquables dans un nouveau h4, sinon écrivez "Pas encore d'éléments dans le menu" #}
-                     {% for item in detaisession %}
+                 {% for item in detailsession %}
 
-                    <h4 class="mt-3">{{ item.lenom}}
+                
+                    <h4 class="mt-3">{{item.lenom}}
                         |
-                        <a href="?update={{ item.idlasession }}">modifier</a>
+                        <a href="?update={{item.idlasession}}">modifier</a>
                         |
-                        <a href="?delete={{ item.idlasession }}">supprimer</a>
+                        <a href="?delete={{item.idlasession}}">supprimer</a>
                     </h4>
                {% endfor %}
 
