@@ -13,32 +13,20 @@ private $db;
      $this ->db =$connect;
 }
 
-  public function sessionid(): array {
+ 
 
 
-$sql="SELECT * FROM lasession;";
-$recup=$this->db->query($sql);
+ 
+public function afficheSession():array{
+
+$sql="SELECT * FROM lasession ORDER BY lenom ASC;";
+$recup =$this->db->query($sql);
 if($recup->rowCount()===0){
-   return[];
+    return[];
 
-} 
-return $recup->fetchAll(PDO::FETCH_ASSOC);
-
-  }
-
-
-  public function creerMenu(): array
-  {
-    $sql = "SELECT * FROM lasession ORDER BY lenom ASC ;";
-    $recup = $this->db->query($sql);
-
-    if ($recup->rowCount() === 0) {
-      return [];
-    }
-    return $recup->fetchAll(PDO::FETCH_ASSOC);
-  }
-
-
+}
+   return $recup->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 
