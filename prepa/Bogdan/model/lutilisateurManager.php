@@ -17,10 +17,11 @@ class lutilisateurManager
     }
 
     // on essaie de se connecter
-    public function afficheUsersComplete()
+    public function afficheUsers()
     {
+        $sql="SELECT idlutilisateur,lenomutilisateur,lenom,leprenom,lemail FROM lutilisateur;";
 
-        $sql = "SELECT lutilisateur.idlutilisateur,lutilisateur.lenom,lutilisateur.leprenom,lutilisateur.lemail,
+       /* $sql = "SELECT lutilisateur.idlutilisateur,lutilisateur.lenom,lutilisateur.leprenom,lutilisateur.lemail,
 linscription.debut,linscription.fin,
 GROUP_CONCAT(lasession.lenom SEPARATOR '|||')AS nom_session,lasession.debut AS debut_session,lasession.fin AS fin_session,
 GROUP_CONCAT(lafiliere.lenom SEPARATOR '|||') AS lenom_filiere,lafiliere.lepicto,
@@ -35,6 +36,7 @@ LEFT JOIN lerole_has_ledroit ON lerole.idlerole=lerole_has_ledroit.lerole_idlero
 LEFT JOIN ledroit ON  lerole_has_ledroit.ledroit_idledroit=ledroit.idledroit
 GROUP BY lutilisateur.idlutilisateur 
 ORDER BY lutilisateur.idlutilisateur;";
+*/
 
         $recup = $this->db->query($sql);
 
@@ -59,7 +61,7 @@ ORDER BY lutilisateur.idlutilisateur;";
 
     // vérification que les champs soient valides (pas vides)
 
-    if(empty($datas->getLenomutilisateur())||empty($datas->getLenom()||empty($datas->getLeprenom()||empty($datas->getLemail())))){
+    if(empty($datas->setLenomutilisateur())||empty($datas->setLenom()||empty($datas->setLeprenom()||empty($datas->setLemail())))){
         return false;
     }
 
@@ -68,10 +70,11 @@ ORDER BY lutilisateur.idlutilisateur;";
     $insert = $this->db->prepare($sql);
 
 
-    $insert->bindValue(1,$datas->getLenomutilisateur(),PDO::PARAM_STR);
-    $insert->bindValue(2,$datas->getLenom(),PDO::PARAM_STR);
-    $insert->bindValue(3,$datas->getLeprenom(),PDO::PARAM_STR);
-    $insert->bindValue(4,$datas->getLemail(),PDO::PARAM_STR);
+    $insert->bindValue(1,$datas->setLenomutilisateur(),PDO::PARAM_STR);
+    $insert->bindValue(2,$datas->setLenom(),PDO::PARAM_STR);
+    $insert->bindValue(3,$datas->setLeprenom(),PDO::PARAM_STR);
+    $insert->bindValue(4,$datas->setLemail(),PDO::PARAM_STR);
+
 
 
     // gestion des erreurs avec try catch
@@ -86,6 +89,37 @@ ORDER BY lutilisateur.idlutilisateur;";
     }
 
 }
+    public function updateUser(lutilisateur $datas, int $get){
 
+        // vérification que les champs soient valides (pas vides)
+
+        if(empty($datas->getLenomutilisateur())||empty($datas->getLenom()||empty($datas->getLeprenom()||empty($datas->getLemail()||empty($datas->getIdutilisateur()))))) {
+            return false;
+        }
+        // vérification contre le contournement des droits
+        if($datas->getIdutilisateur()!=$get){
+            return false;
+        }
+
+        $sql = "UPDATE lutilisateur SET lenomutilisateur=?,lenom=?,leprenom=?,lemail=? WHERE idlutilisateur=?;";
+
+        $update = $this->db->prepare($sql);
+
+        $update->bindValue(1,$datas->getLenomutilisateur(),PDO::PARAM_STR);
+        $update->bindValue(2,$datas->getLenom(),PDO::PARAM_STR);
+        $update->bindValue(3,$datas->getLeprenom(),PDO::PARAM_STR);
+        $update->bindValue(4,$datas->getLemail(),PDO::PARAM_STR);
+        $update->bindValue(5,$datas->getIdutilisateur(),PDO::PARAM_INT);
+
+
+        try{
+            $update->execute();
+            return true;
+        }catch (PDOException $e){
+            echo $e->getCode();
+            return false;
+        }
+
+    }
 
 }
