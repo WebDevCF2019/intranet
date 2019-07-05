@@ -1,0 +1,13 @@
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+        <a class="nav-link" href="..">Accueil
+            <span class="sr-only">(current)</span>
+        </a>
+    </li>
+{% for item in lemenu  %}
+    <li class="nav-item"><a class="nav-link" href="?idlafiliere={{ item.idlafiliere }}">{{ item.lenom }}</a></li>
+{% else %}
+    <li class="nav-item"><a class="nav-link" href="#">Pas encore d'éléments dans le menu</a></li>
+{% endfor %}
+    <li class="nav-item"><a class="nav-link" href="?connect">Connexion</a></li>
+</ul>
