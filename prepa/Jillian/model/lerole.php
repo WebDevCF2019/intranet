@@ -80,13 +80,12 @@ class lerole
 			array_push($intitules,$row["intitule"]);
 			array_push($descriptions,$row["thedesc"]);}
 		var_dump($intitules,$descriptions);	
-		var_dump($intitule,$desc);
-		//if(in_array($intitule,$intitules) and in_array($desc,$descriptions)){
-		$conn->query("INSERT INTO lerole (idlerole, intitule, thedesc) VALUES (NULL, '$intitule' , '$desc');");//}
+		if(in_array($intitule,$intitules) == false and in_array($desc,$descriptions)==false){
+		$conn->query("INSERT INTO lerole (idlerole, intitule, thedesc) VALUES (NULL, '$intitule' , '$desc');");}
 	}
 	
 	}
 
-	$issou = new lerole(['intitule'=>'issou','thedesc'=>'desc11']);
+	$issou = new lerole(['intitule'=>'putain2','thedesc'=>'putaindescriptible2']);
 
 	$issou->add_role($conn,$issou);
