@@ -2,7 +2,7 @@
 
 include_once '../kint.phar';
 
-class  thesession {
+class  lasession {
 
 
 
