@@ -8,6 +8,11 @@
  */
 
 /*
+ * configuration
+ */
+require_once '../config.php';
+
+/*
  * vendor autoload for
  * - Twig
  * - Twig extensions
