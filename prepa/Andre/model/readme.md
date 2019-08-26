@@ -1,1 +1,0 @@
-Le mapping des tables se fera dans ce dossier
