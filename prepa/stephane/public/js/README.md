@@ -1,0 +1,2 @@
+# Public javascript folder
+
