@@ -1,21 +1,36 @@
 <?php
 
-require_once "../config.php";
+/* 
+ * 
+ * Front Controller
+ * 
+ * 
+ */
 
-try {
-	$PDOConnect = new PDO(
-		"mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT . ";charset=" . DB_CHARSET,
-		DB_LOGIN,
-		DB_PWD,
-		null);
-} catch (PDOException $e) {
-	echo $e->getMessage();
-	die();
-}
+/*
+ * configuration
+ */
+require_once '../config.php';
 
-include "../models/filiere.php";
-include "../models/inscription.php";
-include "../models/ledroit.php";
-include "../models/lerole.php";
-include "../models/session.php";
-include "../models/utilisateur.php";
+/*
+ * vendor autoload for
+ * - Twig
+ * - Twig extensions
+ */
+require_once '../vendor/autoload.php';
+
+/*
+ * autoload for our models
+ */
+spl_autoload_register(function ($class) {
+    include '../model/' . $class . '.php';
+});
+
+/*
+ * create a PDO connection with MyPDO
+ */
+$db_connect = new MyPDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME .';port=' . DB_PORT .';charset=' . DB_CHARSET,
+        DB_LOGIN,
+        DB_PWD,
+        null,
+        PRODUCT);
