@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta
+        charset="UTF-8">
+        {# Responsive block #}
+        <meta
+        content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+        {# Le bloque title est hérité par défaut #}
+        <title>
+            {% block title %}intranet
+            {% endblock %}
+        </title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block haut %}
+            <h1>Mon titre</h1>
+        {% endblock %}
+        {% block milieu %}{% endblock %}
+        {% block bas %}Le footer par défaut
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

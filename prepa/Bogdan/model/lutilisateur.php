@@ -10,11 +10,11 @@ class lutilisateur
 {
 protected $idutilisateur;
 protected $lenomutilisateur;
-protected $lemotdepasse="mata";
+//protected $lemotdepasse;
 protected $lenom;
 protected $leprenom;
 protected $lemail;
-protected $luniqueid;
+//protected $luniqueid;
 
 //méthodes
 
@@ -55,11 +55,11 @@ protected function hydrate (array $tablehydrate ){
     /**
      * @return mixed
      */
-    public function getLemotdepasse()
+  /*  public function getLemotdepasse()
     {
         return $this->lemotdepasse;
     }
-
+*/
     /**
      * @return mixed
      */
@@ -87,11 +87,12 @@ protected function hydrate (array $tablehydrate ){
     /**
      * @return mixed
      */
+    /*
     public function getLuniqueid()
     {
         return $this->luniqueid;
     }
-
+*/
     /**
      * SETTERS
      */
@@ -114,15 +115,16 @@ protected function hydrate (array $tablehydrate ){
     /**
      * @param mixed $lemotdepasse
      */
-    public function setLemotdepasse($lemotdepasse)
+   /* public function setLemotdepasse($lemotdepasse)
     {
-        $this->lemotdepasse = $this->sha256(trim($lemotdepasse));
+        $this->lemotdepasse = $this->password_hash(trim($lemotdepasse));
     }
 
     /**
      * @param mixed $lenom
      */
-    public function setLenom($lenom)
+
+    public function setLenom( string $lenom)
     {
         $this->lenom = htmlspecialchars(strip_tags(trim($lenom)),ENT_QUOTES);
     }
@@ -130,7 +132,7 @@ protected function hydrate (array $tablehydrate ){
     /**
      * @param mixed $leprenom
      */
-    public function setLeprenom($leprenom)
+    public function setLeprenom( string $leprenom)
     {
         $this->leprenom = htmlspecialchars(strip_tags(trim($leprenom)),ENT_QUOTES);
     }
@@ -138,7 +140,7 @@ protected function hydrate (array $tablehydrate ){
     /**
      * @param mixed $lemail
      */
-    public function setLemail($lemail)
+    public function setLemail(string $lemail)
     {
         $this->lemail =htmlspecialchars(strip_tags(trim($lemail)),ENT_QUOTES);
     }
@@ -146,20 +148,14 @@ protected function hydrate (array $tablehydrate ){
     /**
      * @param mixed $luniqueid
      */
+    /*
     public function setLuniqueid( string $luniqueid)
     {
-        $this->luniqueid = $this-> sha256(trim($luniqueid));
+        $this->luniqueid = $unique[]=uniqid('key',true);
     }
-    public function sha256(string $arg){
-        return hash("256",$arg);
+*/
 
-
-    }
-    public function uniqid (string $idunique){
-        return  $idunique []=uniqid('key',true);
-    }
 
 }
 
 
-var_dump($lulu);
