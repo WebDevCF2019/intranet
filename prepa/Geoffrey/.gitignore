@@ -1,6 +1,5 @@
 # netbeans folder
-/nbproject/
+
 # PHPStorm folder
-/.idea/
-git 
 /vendor/
+

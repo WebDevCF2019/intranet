@@ -1,5 +1,21 @@
 <?php
+$menu = $theuserM->creerMenu();
 
+/**
+ *
+ */
+
+if(isset($_GET['idlutilisateur']) &&ctype_digit($_GET['idlutilisateur'])) {
+
+//var_dump($idthefiliere);
+
+    $idlutilisateur = (int)$_GET['idlutilisateur'];
+
+    $detailUser = $theuserM->afficheUsers($idlutilisateur);
+
+    echo $twig->render("accueilutilisateur.html.twig", ["lemenu" =>
+        $menu, "section" => $detailUser]);
+}
 
 if (isset($_GET['delete'])&&ctype_digit($_GET['delete'])&&!empty($_GET['delete'])){
 
@@ -49,6 +65,7 @@ if (isset($_GET['delete'])&&ctype_digit($_GET['delete'])&&!empty($_GET['delete']
 
     }
 
+
 }elseif (isset($_GET['update'])&&ctype_digit($_GET['update'])&&!empty($_GET['update'])) {
 
     /*
@@ -62,7 +79,7 @@ if (isset($_GET['delete'])&&ctype_digit($_GET['delete'])&&!empty($_GET['delete']
 
     // on récupère la section avec son manager et grâce à son id
 
-    $recupUser = $theuserM->afficheUsers($updateId);
+    $recupUser = $theuserM->updateUserParId($updateId);
 
     // on n'arrive pas à récupéré la section pour la modifier
     if (empty($recupUser)) {
