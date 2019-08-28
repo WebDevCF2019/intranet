@@ -10,6 +10,10 @@
 /*
  * configuration
  */
+
+
+
+ session
 require_once '../config.php';
 
 /*
@@ -51,3 +55,12 @@ $db_connect = new MyPDO(
     null,
     PRODUCT
 );
+
+
+
+if(!isset($_SESSION['TheIdSess'])||$_SESSION['TheIdSess']!=session_id()){
+
+require_once'../controller/sessionController.php'}
+
+/** */
+
