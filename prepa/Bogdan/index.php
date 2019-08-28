@@ -1,84 +1,50 @@
 <?php
- include "kint.phar";
-/**
-*Lancement d'une session
-*
-*/
 
-session_start();
-
-/**
-*Load dependencies
-*/
-require_once "config.php";
-
-//composer vendor
-require_once 'vendor/autoload.php';
-
-
-// Initialize twig templating system - !(PRODUCT) => mod dev
-$loader = new \Twig\Loader\FilesystemLoader('view/');
-$twig = new \Twig\Environment($loader, [
-    'debug' => !(PRODUCT),
-        /* 'cache' => 'E:/WEB/PHP/CrudOO/cache/', */
-        ]);
-// twig extension for text
-$twig->addExtension(new Twig_Extensions_Extension_Text());
-// twig extension for debug
-$twig->addExtension(new \Twig\Extension\DebugExtension());
-
-/**
- * 
- * Create class autoload - find class int model's folder
+/*
+ *
+ * Front Controller
+ *
+ *
  */
 
-spl_autoload_register(function($class){
-    require_once 'model/' . $class .'.php';
+/*
+ * configuration
+ */
+require_once '../config.php';
+
+/*
+ * Composer's autoloader
+ * vendor autoload for
+ * - Twig
+ * - Twig extensions
+ */
+require_once '../vendor/autoload.php';
+
+/*
+ * autoload for our models (create by ourself)
+ */
+spl_autoload_register(function ($class) {
+    include '../model/' . $class . '.php';
 });
 
+/*
+ * create a Twig environment into $twig with debug on true for dev and false on prod, '../view/' is the path to find our view
+ */
+$loader = new \Twig\Loader\FilesystemLoader('../view/');
+$twig = new \Twig\Environment($loader, [
+    'debug' => !(PRODUCT),]);
 
-//connexion to db
-try{
-    $connexion = new MyPDO(
-        'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME .';port=' . DB_PORT .';charset=' . DB_CHARSET,
-        DB_LOGIN,
-        DB_PWD,
-        null,
-        PRODUCT);
-    
+/*
+ * Twig's extension for text and debug
+ */
+$twig->addExtension(new Twig_Extensions_Extension_Text());
+$twig->addExtension(new \Twig\Extension\DebugExtension());
 
-    }catch (PDOException $e){
-        echo $e->getMessage();
-        die();
-    }
-
-
-    // create common's Managers
-
-
-
-$theuserM= new lutilisateurManager($connexion);
-
-    
-    
-    //on est connecté
-    if(isset($_SESSION['mykey']) && $_SESSION['mykey']== session_id()){
-
-      /**
-       * admin
-       */
-      require_once "controler/AdminControler.php";
-
-    }else{
-        /**
-         * public
-         */
-
-         require_once "controler/publicControler.php";
-    }
-
-
-
-
-
-
+/*
+ * create a PDO connection with MyPDO
+ */
+$db_connect = new MyPDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME .';port=' . DB_PORT .';charset=' . DB_CHARSET,
+    DB_LOGIN,
+    DB_PWD,
+    null,
+    PRODUCT);
