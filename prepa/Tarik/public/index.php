@@ -26,6 +26,15 @@ spl_autoload_register(function ($class) {
     include '../model/' . $class . '.php';
 });
 
+
+$loader = new \Twig\Loader\FilesystemLoader('view/');
+$twig = new \Twig\Environment($loader, [
+    'debug' => !(PRODUCT),
+]);
+
+$twig->addExtension(new Twig_Extensions_Extension_Text());
+
+$twig->addExtension(new \Twig\Extension\DebugExtension());
 /*
  * create a PDO connection with MyPDO
  */
