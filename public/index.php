@@ -48,3 +48,4 @@ $db_connect = new MyPDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME .';port='
         DB_PWD,
         null,
         PRODUCT);
+
