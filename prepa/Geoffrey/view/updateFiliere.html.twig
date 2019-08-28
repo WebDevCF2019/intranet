@@ -1,0 +1,36 @@
+{# on étend le template depuis base.html.twig, qui est donc son parent #}
+{% extends "template1.html.twig" %}
+
+{# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
+{% block title %}{{ parent() }} | Admin | Modifier un droit{% endblock %}
+
+{% block menuhaut %}
+{% include "admin/menuHautAdmin.html.twig" %}
+{% endblock %}
+
+{% block milieu %}
+    <!-- Page Content -->
+<main role="main" class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-5">Administration du CF2m</h1>
+                <p class="lead">Admin | Modifier un droit</p>
+            </div>
+            <div class="col-lg-6 text-left">
+                {# Affichage du formulaire #}
+                <form action="" method="post" name="updateLedroit">
+                    <input name="lenom" type="text" placeholder="Titre du droit" value="{{ contenu.lintitule }}" required><br>
+                    <textarea name="ladescription" placeholder="ladescription" required>{{ contenu.ladescription }}</textarea><br>
+                    <input type="hidden" name="idledroit" value="{{ contenu.idledroit}}">
+                    <input type="submit" value="Envoyer">
+                </form>
+                <h3>{{ error }}</h3>
+            </div>
+        </div>
+</main>
+
+{% endblock %}
+
+{% block bas %}
+{% include "footer.html.twig" %}
+{% endblock %}

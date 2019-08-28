@@ -7,3 +7,5 @@ https://trello.com/web20191
 ### Slack du projet
 https://webdevcf2m.slack.com
 
+
+## A faire: Dimitri
