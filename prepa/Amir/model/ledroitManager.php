@@ -50,7 +50,7 @@ class ledroitManager
         }
         $sql = "SELECT * FROM ledroit WHERE idledroit = ?;";
         $recup = $this->db->prepare($sql);
-        $recup->bindValue(1, $idlafiliere, PDO::PARAM_INT);
+        $recup->bindValue(1, $idledroit, PDO::PARAM_INT);
         $recup->execute();
 
         if ($recup->rowCount() === 0) {

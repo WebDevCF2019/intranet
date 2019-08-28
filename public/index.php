@@ -8,6 +8,11 @@
  */
 
 /*
+ * session start
+ */
+session_start();
+
+/*
  * configuration
  */
 require_once '../config.php';
@@ -48,3 +53,10 @@ $db_connect = new MyPDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME .';port='
         DB_PWD,
         null,
         PRODUCT);
+
+/*
+ * Pas connecté, donc on veut afficher le contrôleur public
+ */
+if(!isset($_SESSION['TheIdSess'])||$_SESSION['TheIdSess']!= session_id()){
+    require_once '../controller/PublicController.php';
+}

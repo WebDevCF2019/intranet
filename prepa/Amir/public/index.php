@@ -20,7 +20,7 @@ require_once '../config.php';
 require_once '../vendor/autoload.php';
 
 /*
- * autoload for our models
+ * autoload for our models (créer par vous)
  */
 spl_autoload_register(function ($class) {
     include '../model/' . $class . '.php';
