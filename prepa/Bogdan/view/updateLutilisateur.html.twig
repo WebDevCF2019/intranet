@@ -1,11 +1,11 @@
 {# on étend le template depuis base.html.twig, qui est donc son parent #}
-{% extends "filiere/template1.html.twig" %}
+{% extends "template1.html.twig" %}
 
 {# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
 {% block title %}{{ parent() }} | Admin | Modifier un stagiaire{% endblock %}
 
 {% block menuhaut %}
-{% include "filiere/hautEtMenu.html.twig" %}
+{% include "hautEtMenu.html.twig" %}
 {% endblock %}
 
 {% block milieu %}
@@ -21,9 +21,10 @@
                 <form action="" method="post" name="updateLutilisateur ">
                     <input name="idlutilisateur" type="hidden" value="{{ contenu.idlutilisateur }}">
                     <input name="lenom" type="text" placeholder="Le nom" value="{{ contenu.lenom }}" required><br>
-                    <input name="leprenom" type="text" placeholder="Le nom" value="{{ contenu.leprenom }}" required><br>
-                    <input name="lenomutilisateur" type="text" placeholder="Le nom" value="{{ contenu.lenomutilisateur }}" required><br>
-                    <textarea name="lemail" placeholder="Le prénom" required>{{ contenu.lemail }}</textarea><br>
+                    <input name="leprenom" type="text" placeholder="Le prenom" value="{{ contenu.leprenom }}" required><br>
+                    <input name="lenomutilisateur" type="text" placeholder="Le nom utilisateur" value="{{ contenu.lenomutilisateur }}" required><br>
+                    <input name="lemail" type="text" placeholder="Le mail" value="{{ contenu.lemail }}" required><br>
+
                     <input type="submit" value="Envoyer">
                 </form>
                 <h3>{{ error }}</h3>
@@ -34,5 +35,5 @@
 {% endblock %}
 
 {% block bas %}
-{% include "filiere/footer.html.twig" %}
+{% include "footer.html.twig" %}
 {% endblock %}
