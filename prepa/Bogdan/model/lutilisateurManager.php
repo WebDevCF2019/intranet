@@ -89,13 +89,30 @@ ORDER BY lutilisateur.idlutilisateur;";
     }
 
 }
-    public function updateUser(lutilisateur $datas, int $get){
+    public function updateUserParId(int $iduser): array{
+        if(empty($iduser)){
+            return [];
+
+        }
+        $sql="SELECT lenomutilisateur,lenom,leprenom,lemail,idlutilisateur FROM lutilisateur WHERE idlutilisateur=$iduser ;";
+        $recup = $this->db->query($sql);
+
+
+        if($recup->rowCount()===0){
+            return [];
+        }
+        return $recup->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Requête pour mettre à jour une filiere en vérifant si la variable get idsection correspond bien à la variable post idfiliere (usurpation d'identité)
+
+    public function updateUser(lutilisateur $datas, int $get): bool{
 
         // vérification que les champs soient valides (pas vides)
-
-        if(empty($datas->getLenomutilisateur())||empty($datas->getLenom()||empty($datas->getLeprenom()||empty($datas->getLemail()||empty($datas->getIdutilisateur()))))) {
+        if(empty($datas->getLenomutilisateur())||empty($datas->getLenom())||empty($datas->getLeprenom()||empty($datas->getLemail()||empty($datas->getIdutilisateur())))){
             return false;
         }
+
         // vérification contre le contournement des droits
         if($datas->getIdutilisateur()!=$get){
             return false;
@@ -111,15 +128,21 @@ ORDER BY lutilisateur.idlutilisateur;";
         $update->bindValue(4,$datas->getLemail(),PDO::PARAM_STR);
         $update->bindValue(5,$datas->getIdutilisateur(),PDO::PARAM_INT);
 
+        $update->execute();
+        return true;
 
-        try{
-            $update->execute();
-            return true;
-        }catch (PDOException $e){
-            echo $e->getCode();
-            return false;
+
+
+    }
+
+    public function creerMenu(): array {
+        $sql = "SELECT * FROM lutilisateur ORDER BY idlutilisateur ASC;";
+        $recup = $this->db->query($sql);
+
+        if($recup->rowCount()===0){
+            return[];
         }
-
+        return $recup->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
