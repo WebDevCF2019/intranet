@@ -10,7 +10,7 @@
 /*
  * configuration
  */
-require_once '../config.php';
+require_once 'config.php';
 
 /*
  * Composer's autoloader
@@ -18,7 +18,7 @@ require_once '../config.php';
  * - Twig
  * - Twig extensions
  */
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 /*
  * autoload for our models (create by ourself)
