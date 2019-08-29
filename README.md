@@ -8,4 +8,4 @@ https://trello.com/web20191
 https://webdevcf2m.slack.com
 
 
-## A faire: Dimitri
+## A faire: Dimitri et Jillian
