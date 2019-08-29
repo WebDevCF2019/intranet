@@ -61,7 +61,7 @@ ORDER BY lutilisateur.idlutilisateur;";
 
     // vérification que les champs soient valides (pas vides)
 
-    if(empty($datas->setLenomutilisateur())||empty($datas->setLenom()||empty($datas->setLeprenom()||empty($datas->setLemail())))){
+    if(empty($datas->getLenomutilisateur())||empty($datas->getLenom()||empty($datas->getLeprenom()||empty($datas->getLemail())))){
         return false;
     }
 
@@ -70,10 +70,10 @@ ORDER BY lutilisateur.idlutilisateur;";
     $insert = $this->db->prepare($sql);
 
 
-    $insert->bindValue(1,$datas->setLenomutilisateur(),PDO::PARAM_STR);
-    $insert->bindValue(2,$datas->setLenom(),PDO::PARAM_STR);
-    $insert->bindValue(3,$datas->setLeprenom(),PDO::PARAM_STR);
-    $insert->bindValue(4,$datas->setLemail(),PDO::PARAM_STR);
+    $insert->bindValue(1,$datas->getLenomutilisateur(),PDO::PARAM_STR);
+    $insert->bindValue(2,$datas->getLenom(),PDO::PARAM_STR);
+    $insert->bindValue(3,$datas->getLeprenom(),PDO::PARAM_STR);
+    $insert->bindValue(4,$datas->getLemail(),PDO::PARAM_STR);
 
 
 
@@ -94,7 +94,7 @@ ORDER BY lutilisateur.idlutilisateur;";
             return [];
 
         }
-        $sql="SELECT lenomutilisateur,lenom,leprenom,lemail,idlutilisateur FROM lutilisateur WHERE idlutilisateur=$iduser ;";
+        $sql="SELECT lenomutilisateur,lenom,leprenom,lemail,idlutilisateur FROM lutilisateur WHERE idlutilisateur=?;";
         $recup = $this->db->query($sql);
 
 
@@ -128,9 +128,14 @@ ORDER BY lutilisateur.idlutilisateur;";
         $update->bindValue(4,$datas->getLemail(),PDO::PARAM_STR);
         $update->bindValue(5,$datas->getIdutilisateur(),PDO::PARAM_INT);
 
-        $update->execute();
-        return true;
 
+        try{
+            $update->execute();
+            return true;
+        }catch (PDOException $e){
+            echo $e->getCode();
+            return false;
+        }
 
 
     }
