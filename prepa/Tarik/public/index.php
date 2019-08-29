@@ -10,6 +10,10 @@
 /*
  * configuration
  */
+
+
+
+ session
 require_once '../config.php';
 
 /*
@@ -51,3 +55,13 @@ $db_connect = new MyPDO(
     null,
     PRODUCT
 );
+
+
+
+
+/*
+ * Pas connecté, donc on veut afficher le contrôleur public
+ */
+if (!isset($_SESSION['TheIdSess']) || $_SESSION['TheIdSess'] != session_id()) {
+    require_once '../controller/PublicController.php';
+}
