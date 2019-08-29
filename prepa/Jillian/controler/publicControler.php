@@ -120,6 +120,6 @@ var_dump($update);
       echo $twig->render("filiere/accueilFilliere.html.twig", ["lemenu"=>$menu,"detailfiliere"=>$filiere]);
     }
   
-    
+    echo "Hello world";
   
   
