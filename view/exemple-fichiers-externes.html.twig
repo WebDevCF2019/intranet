@@ -1,0 +1,19 @@
+{# On va chercher sur un CDN bootstrap, jquery#}
+
+{# On hérite de base.html.twig#}
+
+{% extends "base.html.twig" %}
+
+{# APPEL DES CSS#}
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sticky-footer-navbar.css">
+{% endblock %}
+
+{# APPEL DES JAVASCRIPT #}
+{% block javascripts %}
+<script src="js/jquery.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+
+
