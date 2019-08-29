@@ -1,7 +1,7 @@
 <?php
 
 
-//controller frontal
+//controler frontal
 
 
 
