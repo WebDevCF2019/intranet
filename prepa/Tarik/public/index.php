@@ -58,9 +58,10 @@ $db_connect = new MyPDO(
 
 
 
-if(!isset($_SESSION['TheIdSess'])||$_SESSION['TheIdSess']!=session_id()){
 
-require_once'../controller/sessionController.php'}
-
-/** */
-
+/*
+ * Pas connecté, donc on veut afficher le contrôleur public
+ */
+if (!isset($_SESSION['TheIdSess']) || $_SESSION['TheIdSess'] != session_id()) {
+    require_once '../controller/PublicController.php';
+}
