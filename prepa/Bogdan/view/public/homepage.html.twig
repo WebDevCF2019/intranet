@@ -1,27 +1,167 @@
 {% extends "cdn.html.twig" %}
 
 {% block haut %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img src="../../public/img/download.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text"></p>
+
+    <div class="container px-lg-5">
+        <div class="row mx-lg-n5">
+            <div class="col py-3 px-lg-5 border bg-light">
+               <img src= "https://www.cf2m.be/wp-content/uploads/2019/03/cropped-the-logo-cf1-1-1.png">
+
+            </div>
+
+
+            <div class="col py-3 px-lg-5 border bg-light">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">Acceuil</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Gestion <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Systeme</a>
+                            </li>
+
+                        </ul>
+
                     </div>
-                </div>
+                </nav></div>
+        </div>
+    </div>
+    <br><br><br>
+
+    <div class="row justify-content-end">
+        <div class="col-4 text-center">
+            <h1> ACCUEIL</h1>
+    </div>
+        <div class="col-4 text-right">
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                Se connecter
+            </button>
+    </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <div class="col-0 ">
+
+        </div>
+
+        <div class="col-12 text-center">
 
     </div>
-            <div class="col-sm">
-      One of three columns
-    </div>
-            <div class="col-sm">
-      One of three columns
-    </div>
-        </div>
+
     </div>
 {% endblock %}
 {% block milieu %}
+    <link rel="stylesheet" href="../../public/css/style2.css">
+    <style>
+        .wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .wrapper  {
+            padding: 100px;
+            flex: 1 100%;
+        }
+
+        .header {
+            background: white;
+        }
+
+        .footer {
+            background: white;
+            margin-right: 1000px;
+        }
+
+        .main {
+            text-align: left;
+            background: white;
+        }
+
+        .aside-1 {
+            background: white;
+        }
+
+        .aside-2 {
+            background: white;
+        }
+
+        @media all and (min-width: 600px) {
+            .aside { flex: 1 0 0; }
+        }
+
+        @media all and (min-width: 800px) {
+            .main    { flex: 3 0px; }
+            .aside-1 { order: 1; }
+            .main    { order: 2; }
+            .aside-2 { order: 3; }
+            .footer  { order: 4; }
+        }
+
+        body {
+            padding: 2em;
+        }
+
+    </style>
+    <div class="wrapper">
 
 
+        <article class="main">
+            <p><button type="button" class="btn btn-primary btn-lg btn-block">Gestion de l'utilisateur</button></p>
+            <p><button type="button" class="btn btn-primary btn-lg btn-block">Gestion des roles</button></p>
+            <p><button type="button" class="btn btn-primary btn-lg btn-block">Gestion des droits</button></p>
+            <p><button type="button" class="btn btn-primary btn-lg btn-block">Gestion</button></p>
+        </article>
+        <aside class="aside aside-1">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    STAGIERES
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">Action</button>
+                    <button class="dropdown-item" type="button">Another action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                </div>
+            </div>
+            <div class="dropdown">
+            <br><br>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    UTILISATEURS
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">Action</button>
+                    <button class="dropdown-item" type="button">Another action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                </div>
+            </div>
+            <br><br>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   SYSTEME
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">Action</button>
+                    <button class="dropdown-item" type="button">Another action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
+                </div>
+            </div>
+        </aside>
+        <aside class="aside aside-2">
+
+        </aside>
+
+    </div>
+    <div class="row">
+        <div class="col text-center" ><img src="https://www.cf2m.be/wp-content/uploads/2019/04/Logo-FSE-.png " height="90"></div>
+        <div class="col text-center"><img src="https://www.cf2m.be/wp-content/uploads/2018/11/actiris-1.png"  height="90"></div>
+        <div class="col text-center"><img src="https://www.cf2m.be/wp-content/uploads/2018/11/loterienationale-1-300x169.png" height="90"></div>
+        <div class="col text-center"><img src="https://www.cf2m.be/wp-content/uploads/2018/11/bxlformation-1-300x228.png" height="70"></div>
+    </div>
 {% endblock %}
