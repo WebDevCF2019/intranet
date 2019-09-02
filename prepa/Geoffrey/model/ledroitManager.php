@@ -19,7 +19,7 @@ class ledroitManager
     //creation du menu
     public function creerMenu(): array
     {
-        $sql = "SELECT idledroit,ladescription,lintitule, FROM ledroit ORDER BY lintitule ASC;";
+        $sql = "SELECT idledroit,ladescription,lintitule FROM ledroit ORDER BY lintitule ASC;";
         $recup = $this->db->query($sql);
 
         if ($recup->rowCount() === 0) {
