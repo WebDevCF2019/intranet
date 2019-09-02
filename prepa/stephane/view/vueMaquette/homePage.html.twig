@@ -1,0 +1,30 @@
+{# on étend le template depuis base.html.twig, qui est donc son parent #}
+{% extends "base.html.twig" %}
+
+{# on veut surcharger le title, on utilise le bloc, on récupère le contenu du parent {{ parent() }} et on rajoute notre texte #}
+{% block title %}{{ parent() }} | Home page{% endblock %}
+
+
+
+{% block milieu %}
+<nav class="navbar navbar-light" style="background-color: #e3f2fd; margin: 20px; height: 100px; border-radius: 10px;">
+  <lI>Accueil</li>
+  <lI>Qui sommes nous</li>
+  <lI>Que faisons nous</li>
+  <lI>Contact</li>
+</nav>
+
+    <button type="button" class="btn btn-primary btn-lg" style="position: absolute;
+  right: 20px; margin-top:60px;">connection</button>
+
+
+  <div class="container_home">
+  Actualité
+  </div>
+
+{% endblock %}
+
+
+    {% block bas %}
+{% include "filiere/footer.html.twig" %}
+{% endblock %}
