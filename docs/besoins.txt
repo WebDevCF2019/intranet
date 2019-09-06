@@ -1,0 +1,3 @@
+encodage feuille de présence:
+ 
+si retard, bloquer la sortie tant que l'heure ne soit rentrée (message d'erreur)
